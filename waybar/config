@@ -1,28 +1,22 @@
 {
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 38, // Waybar height
-    "width": 1912, // Waybar width
+    "layer": "top",
+    "position": "top",
+    "height": 38,
+    //"width": 1912,
+    "width": 2552,
     "margin-top": 4,
-    // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/pikaur", "custom/media"],
-    "modules-center": ["cpu", "temperature", "memory", "disk", "battery"], // maybe add swap
-    "modules-right": ["pulseaudio", "network", "bluetooth", "tray", "custom/weather", "clock", "custom/swaync"],    // Modules configuration
+    "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
+    //"modules-center": ["cpu", "temperature", "memory", "disk", "battery"],
+    "modules-center": ["cpu", "temperature", "memory", "custom/radontop", "temperature#gpu", "custom/radeontop#mem", "disk", "disk#storage"],
+    "modules-right": ["pulseaudio", "network", "bluetooth", "tray", "custom/weather", "clock", "custom/swaync"],
     "sway/workspaces": {
         "disable-scroll": true,
         "disable-markup" : false,
         "all-outputs": true,
-        "format": "{name}",
+        "format": "{name}"
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
     },
     "tray": {
         "icon-size": 21,
@@ -30,7 +24,6 @@
     },
     "clock": {
         "tooltip-format": "{:%Y-%m-%d | %H:%M}",
-        // "format-alt": "{:%Y-%m-%d}"
         "on-click": "gnome-calendar"
     },
     "cpu": {
@@ -39,7 +32,8 @@
     },
     "temperature": {
         "interval": 1,
-        "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
+        //"hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon3/temp3_input",
         "critical-threshold": 75,
         "format-critical": "{temperatureC}°C ",
         "format": "{temperatureC}°C "
@@ -60,7 +54,7 @@
             "headset": "",
             "phone": "",
             "portable": "",
-            "car": "",            
+            "car": ""          
         },
         "on-click": "pavucontrol",
         "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
@@ -71,13 +65,18 @@
         "format": "{free} ",
         "path": "/"
     },
+    "disk#storage": {
+        "interval": 30,
+        "format": "{free} ",
+        "path": "/mnt/backups"
+    },
     "custom/media": {
         "format": "{icon} {}",
         "return-type": "json",
         "max-length": 40,
         "format-icons": {
             "Playing": "",
-            "Paused": "",
+            "Paused": ""
         },
         "on-click": "playerctl previous",
         "on-click-right": "playerctl next",
@@ -95,8 +94,25 @@
             "update": "",
             "updated": ""
         },
-        "on-click": "foot sudo pacman -Syu; pkill -SIGRTMIN+8 waybar", // update system
+        "on-click": "foot sudo pacman -Syu; pkill -SIGRTMIN+8 waybar",
         "signal": 8
+    },
+    "custom/radeontop": {
+        "exec": "$HOME/.config/waybar/custom_modules/radeontop.py gpu",
+        "format": "{}% ",
+        "return-type": "json"
+    },
+    "custom/radeontop#mem": {
+        "exec": "$HOME/.config/waybar/custom_modules/radeontop.py mem",
+        "format": "{} ",
+        "return-type": "json"
+    },
+    "temperature#gpu": {
+        "interval": 1,
+        "hwmon-path": "/sys/class/drm/card0/device/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 75,
+        "format-critical": "{temperatureC}°C ",
+        "format": "{temperatureC}°C "
     },
     "custom/weather": {
         "exec": "curl https://wttr.in/?format=1",

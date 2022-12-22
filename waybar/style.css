@@ -69,6 +69,7 @@ tooltip label {
 #bluetooth,
 #network,
 #pulseaudio,
+#custom-radeontop,
 #backlight,
 #custom-weather,
 #disk {
@@ -162,11 +163,27 @@ tooltip label {
 #custom-swaync {
     margin-right: 0;
 }
-#cpu {
+#cpu,
+#custom-radeontop.custom-gpu {
     margin-right: 0;
     border-radius: 3px 0px 0px 3px;
 }
 #temperature {
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 0px 0px 0px 0px;
+}
+#memory,
+#custom-radeontop.custom-mem {
+    margin-left: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+#disk {
+    margin-right: 0;
+    border-radius: 3px 0px 0px 3px;
+}
+#disk.storage {
     margin-left: 0;
     border-radius: 0px 3px 3px 0px;
 }
