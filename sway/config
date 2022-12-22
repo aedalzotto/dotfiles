@@ -327,7 +327,4 @@ assign [app_id="code-oss"] → workspace number 4
 ## Pipewire config
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
-## Systemd environment
-#exec_always "systemctl --user import-environment; systemctl --user start sway-session.target"
-
 include /etc/sway/config.d/*
