@@ -10,7 +10,7 @@ nautilus
 pulse
 QtProject.conf
 sublime-text
-systemd
+*.target.wants
 tlpui
 user-dirs.dirs
 user-dirs.locale
