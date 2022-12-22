@@ -1,0 +1,193 @@
+/* COLORS */
+
+/* Github Dark Dimmed */
+@define-color bg #1c2128;
+@define-color fg #adbac7;
+@define-color light #909dab;
+@define-color warning #c69026;
+@define-color critical #f47067;
+@define-color mode #636e7b;
+@define-color workspacesfocused #539bf5;
+@define-color modulesbg #2d333b;
+
+@keyframes blink-warning {
+    70% {
+        color: @bg;
+    }
+
+    to {
+        color: @bg;
+        background-color: @warning;
+    }
+}
+
+@keyframes blink-critical {
+    70% {
+      color: @bg;
+    }
+
+    to {
+        color: @bg;
+        background-color: @critical;
+    }
+}
+
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 3px;
+    min-height: 0;
+    margin: 0.2em 0.3em 0.2em 0.3em;
+}
+
+tooltip {
+    background: rgba(38, 79, 120, 0.5);
+    border: 3px solid @bg;
+    border-radius: 6px;
+}
+tooltip label {
+    color: @fg;
+}
+
+/* The whole bar */
+#waybar {
+    background: @bg;
+    color: @fg;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Each module */
+#battery,
+#cpu,
+#memory,
+#temperature,
+#clock,
+#tray,
+#custom-swaync,
+#bluetooth,
+#network,
+#pulseaudio,
+#backlight,
+#custom-weather,
+#disk {
+    background-color: @modulesbg;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    font-weight: bold;
+}
+
+#mode {
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+}
+
+/* Each module that should blink */
+#mode,
+#memory,
+#temperature,
+#battery {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* Each critical module */
+#memory.critical,
+#cpu.critical,
+#temperature.critical,
+#battery.critical {
+    color: @critical;
+}
+
+/* Each critical that should blink */
+#mode,
+#memory.critical,
+#temperature.critical,
+#battery.critical.discharging {
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+/* Each warning */
+#network.disconnected,
+#bluetooth.disconnected,
+#memory.warning,
+#cpu.warning,
+#temperature.warning,
+#custom-media.custom-Paused,
+#battery.warning {
+    background: @warning;
+    color: @bg;
+}
+
+/* And now modules themselves in their respective order */
+
+#mode { /* Shown current Sway mode (resize etc.) */
+    color: @bg;
+    background: @mode;
+}
+
+#workspaces button {
+    font-weight: bold; /* Somewhy the bar-wide setting is ignored*/
+    padding: 0;
+    /*color: #999;*/
+    opacity: 0.3;
+    background: none;
+    font-size: 1em;
+}
+
+#workspaces button.focused {
+    background: @workspacesfocused;
+    color: @bg;
+    opacity: 1;
+    padding: 0 0.4em;
+}
+
+#workspaces button.urgent {
+    border-color: @critical;
+    color: @critical;
+    opacity: 1;
+}
+
+#window {
+    margin-right: 40px;
+    margin-left: 40px;
+    font-weight: normal;
+}
+#custom-weather {
+    padding: 0 0.6em;
+}
+#custom-swaync {
+    margin-right: 0;
+}
+#cpu {
+    margin-right: 0;
+    border-radius: 3px 0px 0px 3px;
+}
+#temperature {
+    margin-left: 0;
+    border-radius: 0px 3px 3px 0px;
+}
+
+#custom-swaync.notification,
+#temperature.critical,
+#bluetooth.disabled,
+#pulseaudio.muted {
+    background: @critical;
+    color: @bg;
+}
+
+#custom-media {
+    min-width: 100px;
+}
+
+#network.wifi,
+#network.ethernet,
+#bluetooth.connected,
+#pulseaudio,
+#custom-media.custom-Playing {
+    background-color: @workspacesfocused;
+    color: #2d333b;
+}

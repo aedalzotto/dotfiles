@@ -1,0 +1,156 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 38, // Waybar height
+    "width": 1912, // Waybar width
+    "margin-top": 4,
+    // Choose the order of the modules
+    "modules-left": ["sway/workspaces", "sway/mode", "custom/pikaur", "custom/media"],
+    "modules-center": ["cpu", "temperature", "memory", "disk", "battery"], // maybe add swap
+    "modules-right": ["pulseaudio", "network", "bluetooth", "tray", "custom/weather", "clock", "custom/swaync"],    // Modules configuration
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "disable-markup" : false,
+        "all-outputs": true,
+        "format": "{name}",
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "{:%Y-%m-%d | %H:%M}",
+        // "format-alt": "{:%Y-%m-%d}"
+        "on-click": "gnome-calendar"
+    },
+    "cpu": {
+        "interval": 1,
+        "format": "{usage}% "
+    },
+    "temperature": {
+        "interval": 1,
+        "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
+        "critical-threshold": 75,
+        "format-critical": "{temperatureC}°C ",
+        "format": "{temperatureC}°C "
+    },
+    "memory": {
+        "format": "{used:0.1f}G/{total:0.1f}G "
+    },
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% ",
+        "format-muted": "",
+        "format-icons": {
+            "default": ["", "", ""],
+            "headphone": "",
+            "hdmi": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",            
+        },
+        "on-click": "pavucontrol",
+        "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "$HOME/.config/waybar/custom_modules/paswitch.py"
+    },
+    "disk": {
+        "interval": 30,
+        "format": "{free} ",
+        "path": "/"
+    },
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "Playing": "",
+            "Paused": "",
+        },
+        "on-click": "playerctl previous",
+        "on-click-right": "playerctl next",
+        "on-click-middle": "playerctl play-pause",
+        "escape": true,
+        "exec": "$HOME/.config/waybar/custom_modules/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+    "custom/pikaur": {
+        "interval": 3600,
+        "exec": "$HOME/.config/waybar/custom_modules/pikaur-updates.py",
+        "return-type": "json",
+        "format": "{} {icon}",
+        "format-icons": {
+            "update": "",
+            "updated": ""
+        },
+        "on-click": "foot sudo pacman -Syu; pkill -SIGRTMIN+8 waybar", // update system
+        "signal": 8
+    },
+    "custom/weather": {
+        "exec": "curl https://wttr.in/?format=1",
+        "interval": 1800,
+        "on-click": "xdg-open https://wttr.in/"
+    },
+    "custom/swaync": {
+        "exec": "swaync-client -swb",
+        "return-type": "json",
+        "format": "{icon}",
+        "format-icons": {
+          "notification": "",
+          "none": "",
+          "dnd-notification": "<span foreground='red'><sup></sup></span>",
+          "dnd-none": ""
+        },
+        "exec-if": "which swaync-client",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "format-charging": " {capacity}%",
+        "interval": 30,
+        "design-capacity": true,
+        "full-at": 96,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        }
+    },
+    "network": {
+        "format": "{icon}",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected",
+        "format-icons": {
+            "wifi": ["", "" ,""],
+            "ethernet": [""],
+            "disconnected": [""]
+        },
+        "on-click": "connman-gtk"
+    },
+    "bluetooth": {
+        "format": "",
+        "format-connected": "",
+        "format-connected-battery": "{device_battery_percentage} ",
+        "tooltip-format": "Bluetooth {status}",
+        "tooltip-format-connected": "Connected:\n{device_enumerate}",
+        "on-click": "blueberry"
+    }
+
+}
