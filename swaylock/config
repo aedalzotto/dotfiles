@@ -1,8 +1,8 @@
 ignore-empty-password
 show-failed-attempts
 daemonize
-#image=~/Pictures/Wallpapers/bsod.png
-image=~/Pictures/Wallpapers/bsod-219.png
+image=~/Pictures/Wallpapers/bsod.png
+# image=~/Pictures/Wallpapers/bsod-219.png
 indicator-caps-lock
 bs-hl-color=ff938a
 caps-lock-bs-hl-color=ff938a
