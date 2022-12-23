@@ -254,10 +254,6 @@ exec sworkstyle
 # Autotiling
 exec autotiling-rs
 
-# Wob: bar indicator for volume/backlight
-set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
-exec rm -rf $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
-
 # Corectrl
 exec corectrl
 
