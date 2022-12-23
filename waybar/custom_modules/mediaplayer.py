@@ -14,11 +14,16 @@ logger = logging.getLogger(__name__)
 def write_output(text, player):
     logger.info('Writing output')
 
-    output = {'text': text,
-              'class': 'custom-' + player.props.status,
-              'alt': player.props.status}
+    output = ""
+    if(player.props.status != 'Stopped'):
+        json_out = {'text': text,
+                'class': 'custom-' + player.props.status,
+                'alt': player.props.status}
+        output = json.dumps(json_out)
+    else:
+        logger.info('Stopped')
 
-    sys.stdout.write(json.dumps(output) + '\n')
+    sys.stdout.write(output + '\n')
     sys.stdout.flush()
 
 
