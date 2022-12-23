@@ -1,0 +1,83 @@
+#main {
+    border-radius: 10px;
+    background-color: #1c212844;
+}
+
+#base {
+    margin: 10px;
+}
+
+.fullscale {
+    height: 100%;
+    width: 100%;
+}
+
+.colflex {
+    display: flex;
+    flex-direction: column;
+}
+
+.rowflex {
+    display: flex;
+    flex-direction: row;
+}
+
+.workspace {
+    margin: 10px;
+    border-radius: 8px;
+    background-color: #1c2128ff;
+    border-width: 1px;
+    border-color: #cdd9e5ff;
+}
+
+.window {
+    width: 100px;
+    height: 80px;
+    background-color: #2d333bff;
+    border-radius: 8px;
+    border-width: 1px;
+    border-color: #cdd9e5ff;
+}
+
+.window_active {
+    width: 100px;
+    height: 80px;
+    background-color: #264f78ff;
+    border-radius: 8px;
+    border-width: 1px;
+    border-color: #909dabff;
+}
+
+.title {
+    width: 100%;
+    height: 21px;
+    margin-top: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+    color: #adbac7ff;
+    font-size: 14px;
+    font-family: "Terminus (TTF):style=Bold";
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    margin-left: 4px;
+    margin-right: 4px;
+    color: #cdd9e5ff;
+    vertical-align: top;
+    font-size: 12px;
+    font-family: "Terminus (TTF):style=Bold";
+    word-wrap: break-word;
+    line-height: 12px;
+}
+
+.number {
+    width: 20px;
+    height: 20px;
+    right: -14px;
+    top: -9px;
+    color: #adbac7ff;
+    font-size: 18px;
+    font-family: "Terminus (TTF):style=Bold";
+}
