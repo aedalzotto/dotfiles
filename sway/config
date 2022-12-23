@@ -261,10 +261,6 @@ exec autotiling-rs
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
 exec rm -rf $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 
-# Sov: workspace overview
-set $SOVSOCK $XDG_RUNTIME_DIR/sov.sock
-exec rm -rf $SOVSOCK && mkfifo $SOVSOCK && tail -f $SOVSOCK | sov
-
 # Corectrl
 exec corectrl
 
@@ -325,6 +321,6 @@ assign [app_id="kitty"] → workspace number 3
 assign [app_id="code-oss"] → workspace number 4
 
 ## Pipewire config
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway
 
 include /etc/sway/config.d/*
