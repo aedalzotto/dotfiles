@@ -227,9 +227,6 @@ exec swaync
 bindsym $mod+n exec swaync-client -t -sw
 bindsym $mod+Shift+n exec swaync-client -C
 
-# Battery notifications
-exec batify -f 96
-
 # System monitor
 bindsym $mod+Escape exec gnome-system-monitor
 
