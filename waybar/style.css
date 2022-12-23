@@ -70,6 +70,7 @@ tooltip label {
 #network,
 #pulseaudio,
 #custom-radeontop,
+#custom-updates,
 #backlight,
 #custom-weather,
 #custom-media,
@@ -119,6 +120,7 @@ tooltip label {
 #cpu.warning,
 #temperature.warning,
 #custom-media.custom-Paused,
+#custom-updates.custom-fetch,
 #battery.warning {
     background: @warning;
     color: @bg;
@@ -192,6 +194,7 @@ tooltip label {
 #custom-swaync.notification,
 #temperature.critical,
 #bluetooth.disabled,
+#custom-updates.custom-update,
 #pulseaudio.muted {
     background: @critical;
     color: @bg;
