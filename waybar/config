@@ -8,7 +8,7 @@
     "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
     "modules-center": ["cpu", "temperature", "memory", "disk", "battery"],
     // "modules-center": ["cpu", "temperature", "memory", "custom/radontop", "temperature#gpu", "custom/radeontop#mem", "disk", "disk#storage"],
-    "modules-right": ["pulseaudio", "network", "bluetooth", "tray", "custom/weather", "clock", "custom/swaync"],
+    "modules-right": ["custom/updates", "pulseaudio", "network", "bluetooth", "tray", "custom/weather", "clock", "custom/swaync"],
     "sway/workspaces": {
         "disable-scroll": true,
         "disable-markup" : false,
@@ -85,17 +85,16 @@
         "exec": "$HOME/.config/waybar/custom_modules/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
-    "custom/pikaur": {
-        "interval": 3600,
-        "exec": "$HOME/.config/waybar/custom_modules/pikaur-updates.py",
+    "custom/updates": {
+        "exec": "$HOME/.config/waybar/custom_modules/updates.py -f \"paru -Qua\" -i 3600",
         "return-type": "json",
         "format": "{} {icon}",
         "format-icons": {
+            "fetching": "",
             "update": "",
             "updated": ""
         },
-        "on-click": "foot sudo pacman -Syu; pkill -SIGRTMIN+8 waybar",
-        "signal": 8
+        "on-click": "foot $HOME/.config/waybar/custom_modules/update-script.sh", // todo: send a signal to the updates.py script to update its status
     },
     "custom/radeontop": {
         "exec": "$HOME/.config/waybar/custom_modules/radeontop.py gpu",
