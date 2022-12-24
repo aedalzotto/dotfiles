@@ -43,8 +43,8 @@ input * {
 #     timeout 120 'swaylock' \
 #     timeout 600 'systemd suspend-then-hibernate' before-sleep 'swaylock'
 exec swayidle -w \
-    timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
-
+    timeout 300 'swaymsg "output * dpms off" && ratbagctl "Logitech G403 HERO Gaming Mouse" profile 0 led 0 set mode off && ratbagctl "Logitech G403 HERO Gaming Mouse" profile 0 led 1 set mode off' resume 'swaymsg "output * dpms on" && ratbagctl "Logitech G403 HERO Gaming Mouse" profile 0 led 0 set mode on && ratbagctl "Logitech G403 HERO Gaming Mouse" profile 0 led 1 set mode on' \
+    timeout 600 'swaylock'
 
 ### Key bindings
 #
