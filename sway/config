@@ -213,18 +213,7 @@ bindsym $mod+r mode "resize"
 #
 # Status Bar:
 #
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-    bar swaybar_command waybar
-
-    position top
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+bar swaybar_command waybar
 
 # Notification center
 exec swaync
@@ -301,7 +290,7 @@ client.urgent #4C566A #434c5e #eceff4 #434c5e #434c5e
 for_window [app_id="org.gnome.Calculator"] floating enable
 for_window [app_id="org.gnome.Nautilus"] floating enable
 for_window [app_id="org.gnome.Calendar"] floating enable
-for_window [app_id="foot"] floating enable, resize set 448 520, move position 1464 0, sticky enable
+for_window [app_id="foot"] floating enable, resize set 578 343, move position 1334 0, sticky enable
 for_window [app_id="blueberry.py"] floating enable
 for_window [app_id="insync"] floating enable
 for_window [app_id="pavucontrol"] floating enable
