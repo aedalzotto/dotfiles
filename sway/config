@@ -39,7 +39,8 @@ input "type:pointer" {
 
 ### Idle configuration
 exec swayidle -w \
-    timeout 10 'light -O && light -s sysfs/leds/platform::kbd_backlight -O && light -s sysfs/leds/platform::kbd_backlight -S 0 && light -S 25' resume 'light -I && light -s sysfs/leds/platform::kbd_backlight -I' \
+    timeout 5 'light -s sysfs/leds/platform::kbd_backlight -O && light -s sysfs/leds/platform::kbd_backlight -S 0' resume 'light -s sysfs/leds/platform::kbd_backlight -I' \
+    timeout 10 'light -O && light -T 0.1' resume 'light -I' \
     timeout 60 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
     timeout 120 'swaylock' \
     timeout 600 'systemd suspend-then-hibernate' before-sleep 'swaylock'
@@ -265,8 +266,8 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pa
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym XF86MonBrightnessUp exec light -A 5 && light | awk '{print int($1)}' > $WOBSOCK
-bindsym XF86MonBrightnessDown exec light -U 5 && light | awk '{print int($1)}' > $WOBSOCK
+bindsym XF86MonBrightnessUp exec light -T 1.25 && light | awk '{print int($1)}' > $WOBSOCK
+bindsym XF86MonBrightnessDown exec light -T 0.80 && light | awk '{print int($1)}' > $WOBSOCK
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
