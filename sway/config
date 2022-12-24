@@ -31,11 +31,12 @@ input "type:pointer" {
     accel_profile flat
 }
 
-# input * {
-#     xkb_layout "br"
-#     xkb_numlock enable
-#     xkb_capslock disable
-# }
+input * {
+    xkb_layout us
+    xkb_variant intl
+    # xkb_numlock enable
+    xkb_capslock disable
+}
 
 ### Idle configuration
 exec swayidle -w \
