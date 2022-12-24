@@ -39,6 +39,7 @@ input "type:pointer" {
 
 ### Idle configuration
 exec swayidle -w \
+    timeout 10 'light -O && light -s sysfs/leds/platform::kbd_backlight -O && light -s sysfs/leds/platform::kbd_backlight -S 0 && light -S 25' resume 'light -I && light -s sysfs/leds/platform::kbd_backlight -I' \
     timeout 60 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
     timeout 120 'swaylock' \
     timeout 600 'systemd suspend-then-hibernate' before-sleep 'swaylock'
