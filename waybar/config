@@ -140,8 +140,8 @@
         "design-capacity": true,
         "full-at": 96,
         "states": {
-            "warning": 25,
-            "critical": 10
+            "warning": 20,
+            "critical": 5
         }
     },
     "network": {
