@@ -224,7 +224,7 @@ bindsym $mod+Shift+n exec swaync-client -C
 bindsym $mod+Escape exec gnome-system-monitor
 
 # Updates
-# bindsym $mod+Shift+u exec "foot pikaur -Syu; pkill -SIGRTMIN+8 waybar"
+bindsym $mod+Shift+u exec foot ~/.config/waybar/custom_modules/update-script.sh
 
 # Screenshot tools
 bindsym Print exec grimshot --notify save screen
