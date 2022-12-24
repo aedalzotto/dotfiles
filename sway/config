@@ -123,6 +123,7 @@ exec swayidle -w \
 #
 # Sov config
 #
+    set $SOVSOCK $XDG_RUNTIME_DIR/sov.sock
     bindsym --no-repeat $mod+1 workspace number 1; exec echo 1 > $SOVSOCK
     bindsym --no-repeat $mod+2 workspace number 2; exec echo 1 > $SOVSOCK
     bindsym --no-repeat $mod+3 workspace number 3; exec echo 1 > $SOVSOCK
@@ -258,6 +259,7 @@ exec autotiling-rs
 exec corectrl
 
 # Function keybidings
+set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -314,6 +316,6 @@ assign [app_id="kitty"] → workspace number 3
 assign [app_id="code-oss"] → workspace number 4
 
 ## Pipewire config
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway
 
 include /etc/sway/config.d/*
