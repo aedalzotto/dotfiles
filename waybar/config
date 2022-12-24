@@ -33,8 +33,8 @@
     "temperature": {
         "interval": 1,
         "critical-threshold": 75,
-        "format-critical": "{temperatureC}°C ",
-        "format": "{temperatureC}°C "
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", "", "", ""]
     },
     "memory": {
         "format": "{used:0.1f}G/{total:0.1f}G "
@@ -45,14 +45,14 @@
         "format-bluetooth": "{volume}% ",
         "format-muted": "",
         "format-icons": {
-            "default": ["", "", ""],
+            "default": ["", "", "", ""],
             "headphone": "",
             "hdmi": "",
             "handsfree": "",
             "headset": "",
             "phone": "",
             "portable": "",
-            "car": ""          
+            "car": ""
         },
         "on-click": "pavucontrol",
         "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
@@ -89,10 +89,10 @@
         "format": "{} {icon}",
         "format-icons": {
             "fetching": "",
-            "update": "",
+            "update": "",
             "updated": ""
         },
-        "on-click": "foot $HOME/.config/waybar/custom_modules/update-script.sh", // todo: send a signal to the updates.py script to update its status
+        "on-click": "foot $HOME/.config/waybar/custom_modules/update-script.sh" // todo: send a signal to the updates.py script to update its status
     },
     "custom/radeontop": {
         "exec": "$HOME/.config/waybar/custom_modules/radeontop.py gpu",
@@ -108,8 +108,8 @@
         "interval": 1,
         "hwmon-path": "/sys/class/drm/card0/device/hwmon/hwmon2/temp1_input",
         "critical-threshold": 75,
-        "format-critical": "{temperatureC}°C ",
-        "format": "{temperatureC}°C "
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", "", "", ""]
     },
     "custom/weather": {
         "exec": "curl https://wttr.in/?format=1",
@@ -121,10 +121,10 @@
         "return-type": "json",
         "format": "{icon}",
         "format-icons": {
-          "notification": "",
-          "none": "",
-          "dnd-notification": "<span foreground='red'><sup></sup></span>",
-          "dnd-none": ""
+          "notification": "",
+          "none": "",
+          "dnd-notification": "<span foreground='red'><sup></sup></span>",
+          "dnd-none": ""
         },
         "exec-if": "which swaync-client",
         "on-click": "swaync-client -t -sw",
@@ -135,7 +135,7 @@
         "format": "{capacity}% {icon}",
         "format-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", ""],
-        "format-charging": " {capacity}%",
+        "format-charging": "{capacity}% ",
         "interval": 30,
         "design-capacity": true,
         "full-at": 96,
@@ -147,19 +147,18 @@
     "network": {
         "format": "{icon}",
         "tooltip-format": "{ifname} via {gwaddr} ",
-        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) {icon}\n{frequency} GHz",
         "tooltip-format-ethernet": "{ifname} ",
         "tooltip-format-disconnected": "Disconnected",
         "format-icons": {
-            "wifi": ["", "" ,""],
-            "ethernet": [""],
+            "wifi": ["", "" , ""],
+            "ethernet": [""],
             "disconnected": [""]
         },
         "on-click": "connman-gtk"
     },
     "bluetooth": {
-        "format": "",
-        "format-connected": "",
+        "format": "",
         "format-connected-battery": "{device_battery_percentage}% ",
         "tooltip-format": "Bluetooth {status}",
         "tooltip-format-connected": "Connected:\n{device_enumerate}",
