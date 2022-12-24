@@ -145,7 +145,11 @@
         }
     },
     "network": {
-        "format": "{icon}",
+        "format": "",
+        "format-wifi": "{icon}",
+        "format-ethernet": "{icon}",
+        "format-disconnected": "{icon}",
+        "format-linked": "{icon}",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) {icon}\n{frequency} GHz",
         "tooltip-format-ethernet": "{ifname} ",
@@ -153,7 +157,8 @@
         "format-icons": {
             "wifi": ["", "" , ""],
             "ethernet": [""],
-            "disconnected": [""]
+            "disconnected": [""],
+            "linked": [""]
         },
         "on-click": "connman-gtk"
     },
