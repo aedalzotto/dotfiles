@@ -210,18 +210,7 @@ bindsym $mod+r mode "resize"
 #
 # Status Bar:
 #
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-    bar swaybar_command waybar
-
-    position top
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+bar swaybar_command waybar
 
 # Notification center
 exec swaync

@@ -3,11 +3,16 @@ import sys, json
 from subprocess import check_output, DEVNULL
 from argparse import ArgumentParser
 from time import sleep
+from os import remove
+from os.path import exists
+
+UPDATE_TIMEOUT = 1800
+UPDATE_SLEEP   = 5
 
 def has_updates(updates):
 	out = {}
 
-	out["text"] = "{} updates available".format(len(updates))
+	out["text"] = "{} update{} available".format(len(updates), "s" if len(updates) > 1 else "")
 	out["alt"] = "update"
 
 	tooltip_str = "Packages:\n"
@@ -62,15 +67,28 @@ def fetch(fetch_cmd):
 	return pacman_updates + aur_updates
 
 def main(fetch_cmd, interval):
+	try:
+		remove("/tmp/updates.lck")
+	except:
+		pass
+
 	while True:
 		updates = fetch(fetch_cmd)
 		if(len(updates) == 0):
 			is_updated()
+			sleep(interval)
+			pass
 		else:
+			open("/tmp/updates.lck", "w")
 			has_updates(updates)
-   
-		sleep(interval)
-  
+			timeout = 0
+			while(exists("/tmp/updates.lck")):
+				sleep(UPDATE_SLEEP)
+				timeout += UPDATE_SLEEP
+				if(timeout == UPDATE_TIMEOUT):
+					remove("/tmp/updates.lck")
+			
+
 if __name__ == "__main__":
 	parser = ArgumentParser(description="Update module for waybar.")
 	parser.add_argument('-f', "--fetchcmd", default="", help="Command to optionally fetch (only) AUR updates (e.g. paru -Qua).")
