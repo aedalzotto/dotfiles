@@ -310,4 +310,8 @@ assign [app_id="code-oss"] → workspace number 4
 ## Pipewire config
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway
 
+## Tablet mode configuration
+exec sway-accel-rotate
+exec watch_tablet
+
 include /etc/sway/config.d/*

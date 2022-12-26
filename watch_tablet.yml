@@ -1,0 +1,7 @@
+input_device: /dev/input/by-path/platform-yoga-event
+
+modes:
+  laptop:
+    - notify-send "Laptop mode"
+  tablet:
+    - notify-send "Tablet mode"
