@@ -2,6 +2,10 @@ input_device: /dev/input/by-path/platform-yoga-event
 
 modes:
   laptop:
-    - notify-send "Laptop mode"
+    - kill -USR2 $(cat /tmp/waybar-tablet-menu.pid)
+    - kill -USR2 $(cat /tmp/waybar-tablet-close.pid)
+    - gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled false
   tablet:
-    - notify-send "Tablet mode"
+    - kill -USR1 $(cat /tmp/waybar-tablet-menu.pid)
+    - kill -USR1 $(cat /tmp/waybar-tablet-close.pid)
+    - gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled true

@@ -5,7 +5,7 @@
     "width": 1912,
     // "width": 2552,
     "margin-top": 4,
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
+    "modules-left": ["custom/tablet#close", "custom/tablet#menu", "sway/workspaces", "sway/mode", "custom/media"],
     "modules-center": ["cpu", "temperature", "memory", "disk", "battery"],
     // "modules-center": ["cpu", "temperature", "memory", "custom/radontop", "temperature#gpu", "custom/radeontop#mem", "disk", "disk#storage"],
     "modules-right": ["custom/updates", "pulseaudio", "network", "bluetooth", "tray", "custom/weather", "clock", "custom/swaync"],
@@ -168,6 +168,25 @@
         "tooltip-format": "Bluetooth {status}",
         "tooltip-format-connected": "Connected:\n{device_enumerate}",
         "on-click": "blueberry"
+    },
+    "custom/tablet#menu": {
+        "exec": "$HOME/.config/waybar/custom_modules/tablet.py menu",
+        "format": "{icon}",
+        "format-icons": {
+            "menu": "",
+            "laptop": ""
+        },
+        "return-type": "json",
+        "on-click": "sirula"
+    },
+    "custom/tablet#close": {
+        "exec": "$HOME/.config/waybar/custom_modules/tablet.py close",
+        "format": "{icon}",
+        "format-icons": {
+            "close": "",
+            "laptop": ""
+        },
+        "return-type": "json",
+        "on-click": "swaymsg kill"
     }
-
 }

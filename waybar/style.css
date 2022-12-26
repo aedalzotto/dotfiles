@@ -75,6 +75,7 @@ tooltip label {
 #backlight,
 #custom-weather,
 #custom-media,
+#custom-tablet,
 #disk {
     background-color: @modulesbg;
     padding-left: 0.6em;
@@ -196,6 +197,7 @@ tooltip label {
 #temperature.critical,
 #bluetooth.disabled,
 #custom-updates.custom-update,
+#custom-tablet.custom-close,
 #pulseaudio.muted {
     background: @critical;
     color: @bg;
@@ -209,6 +211,7 @@ tooltip label {
 #network.ethernet,
 #bluetooth.connected,
 #pulseaudio,
+#custom-tablet.custom-menu,
 #custom-media.custom-Playing {
     background-color: @workspacesfocused;
     color: #2d333b;

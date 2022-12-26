@@ -313,5 +313,6 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 ## Tablet mode configuration
 exec sway-accel-rotate
 exec watch_tablet
+exec squeekboard
 
 include /etc/sway/config.d/*
