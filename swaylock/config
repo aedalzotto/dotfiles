@@ -1,4 +1,4 @@
-ignore-empty-password
+#ignore-empty-password
 show-failed-attempts
 daemonize
 image=~/Pictures/Wallpapers/bsod.png
