@@ -269,7 +269,7 @@ bindsym XF86Explorer exec nautilus
 
 ### Look and Feel
 # Font, borders, and gaps
-font pango:monospace 0
+#font pango:monospace 0
 titlebar_border_thickness 0
 titlebar_padding 0
 gaps inner 4
