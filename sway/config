@@ -216,7 +216,6 @@ bindsym $mod+r mode "resize"
 bar swaybar_command waybar
 
 # Notification center
-exec swaync
 bindsym $mod+n exec swaync-client -t -sw
 bindsym $mod+Shift+n exec swaync-client -C
 
@@ -236,10 +235,6 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # RedShift
 exec /usr/lib/geoclue-2.0/demos/agent
-exec gammastep-indicator
-
-# Insync
-exec insync start
 
 # Automatic workspace naming
 exec sworkstyle
@@ -306,9 +301,6 @@ for_window [app_id="connman-gtk"] floating enable
 assign [class="Google-chrome"] → workspace number 1
 assign [app_id="kitty"] → workspace number 3
 assign [app_id="code-oss"] → workspace number 4
-
-## Pipewire config
-exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway
 
 ## Tablet mode configuration
 exec sway-accel-rotate
