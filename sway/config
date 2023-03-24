@@ -230,9 +230,6 @@ bindsym Print exec grimshot --notify save screen
 bindsym $mod+Print exec grimshot --notify save active
 bindsym $mod+Shift+Print exec grimshot --notify save area
 
-# Polkit authentication
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-
 # Automatic workspace naming
 exec sworkstyle
 
