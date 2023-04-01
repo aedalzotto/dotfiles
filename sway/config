@@ -38,12 +38,8 @@ input * {
 }
 
 ### Idle configuration
-# exec swayidle -w \
-#     timeout 60 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#     timeout 120 'swaylock' \
-#     timeout 600 'systemd suspend-then-hibernate' before-sleep 'swaylock'
 exec swayidle -w \
-    timeout 300 'swaymsg "output * dpms off" && ratbagctl "Logitech G403 HERO Gaming Mouse" profile 0 led 0 set mode off && ratbagctl "Logitech G403 HERO Gaming Mouse" profile 0 led 1 set mode off' resume 'swaymsg "output * dpms on" && ratbagctl "Logitech G403 HERO Gaming Mouse" profile 0 led 0 set mode on && ratbagctl "Logitech G403 HERO Gaming Mouse" profile 0 led 1 set mode on' \
+    timeout 300 'swaymsg "output * dpms off" && openrgb -sp temp && openrgb -d 1 -m off && openrgb -d 0 -m off' resume 'swaymsg "output * dpms on" && openrgb -p temp' \
     timeout 600 'swaylock'
 
 ### Key bindings
@@ -233,8 +229,8 @@ exec sworkstyle
 # Autotiling
 exec autotiling-rs
 
-# Corectrl
-exec corectrl
+# OpenRGB client
+exec openrgb --startminimized
 
 # Function keybidings
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
@@ -287,6 +283,7 @@ for_window [app_id="maplelegends.exe"] floating enable; border none
 for_window [app_id="gnome-system-monitor"] floating enable
 for_window [app_id="nm-connection-editor"] floating enable
 for_window [app_id="connman-gtk"] floating enable
+for_window [app_id="openrgb"] floating enable
 
 ## Assign Workspace opens
 assign [class="Google-chrome"] → workspace number 1
