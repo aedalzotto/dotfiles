@@ -4,6 +4,7 @@ daemonize
 image=~/Pictures/Wallpapers/bsod.png
 # image=~/Pictures/Wallpapers/bsod-219.png
 indicator-caps-lock
+fingerprint
 bs-hl-color=ff938a
 caps-lock-bs-hl-color=ff938a
 caps-lock-key-hl-color=dcbdfb
