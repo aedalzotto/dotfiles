@@ -77,6 +77,7 @@ tooltip label {
 #custom-media,
 #custom-tablet,
 #gamemode,
+#idle_inhibitor,
 #disk {
     background-color: @modulesbg;
     padding-left: 0.6em;
@@ -200,6 +201,7 @@ tooltip label {
 #custom-updates.custom-update,
 #custom-tablet.custom-close,
 #gamemode.running,
+#idle_inhibitor.activated,
 #pulseaudio.muted {
     background: @critical;
     color: @bg;
