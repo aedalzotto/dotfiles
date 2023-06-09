@@ -1,0 +1,24 @@
+[Default Applications]
+text/html=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
+application/octet-stream=org.gnome.GHex.desktop
+text/plain=sublime_text.desktop
+application/pdf=org.gnome.Evince.desktop
+application/lrf=calibre-lrfviewer.desktop
+x-scheme-handler/webcal=google-chrome.desktop
+image/png=org.gnome.gThumb.desktop
+image/jpeg=org.gnome.gThumb.desktop
+x-scheme-handler/mailto=google-chrome.desktop
+
+[Added Associations]
+application/octet-stream=sublime_text.desktop;org.gnome.GHex.desktop;
+text/plain=sublime_text.desktop;
+application/pdf=org.gnome.Evince.desktop;
+application/x-wine-extension-inf=sublime_text.desktop;
+image/png=org.gnome.gThumb.desktop;
+image/jpeg=org.gnome.gThumb.desktop;
+application/x-wine-extension-ini=sublime_text.desktop;
+application/x-zerosize=sublime_text.desktop;
