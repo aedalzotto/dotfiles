@@ -76,6 +76,7 @@ tooltip label {
 #custom-weather,
 #custom-media,
 #custom-tablet,
+#gamemode,
 #disk {
     background-color: @modulesbg;
     padding-left: 0.6em;
@@ -198,6 +199,7 @@ tooltip label {
 #bluetooth.disabled,
 #custom-updates.custom-update,
 #custom-tablet.custom-close,
+#gamemode.running,
 #pulseaudio.muted {
     background: @critical;
     color: @bg;

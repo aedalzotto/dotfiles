@@ -4,7 +4,7 @@
     "height": 38,
     "width": 1912,
     "margin-top": 4,
-    "modules-left": ["custom/tablet#close", "custom/tablet#menu", "sway/workspaces", "sway/mode", "custom/media"],
+    "modules-left": ["custom/tablet#close", "custom/tablet#menu", "sway/workspaces", "sway/mode", "custom/media", "gamemode"],
     "modules-center": ["cpu", "temperature", "custom/mem", "disk", "battery"],
     "modules-right": ["custom/updates", "pulseaudio", "network", "bluetooth", "tray", "custom/weather", "clock", "custom/swaync"],
     "sway/workspaces": {
@@ -187,5 +187,17 @@
         },
         "return-type": "json",
         "on-click": "swaymsg kill"
+    },
+    "gamemode": {
+        "format": "{glyph}",
+        "format-alt": "{glyph} {count}",
+        "glyph": "",
+        "hide-not-running": true,
+        "use-icon": false,
+        "icon-name": "input-gaming-symbolic",
+        "icon-spacing": 0,
+        "icon-size": 0,
+        "tooltip": true,
+        "tooltip-format": "Games running: {count}"
     }
 }
