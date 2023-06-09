@@ -93,6 +93,7 @@ tooltip label {
 /* Each module that should blink */
 #mode,
 #custom-mem,
+#custom-radeonmem,
 #temperature,
 #battery {
     animation-timing-function: linear;
@@ -102,6 +103,7 @@ tooltip label {
 
 /* Each critical module */
 #custom-mem.critical,
+#custom-radeonmem.critical,
 #cpu.critical,
 #temperature.critical,
 #battery.critical {
@@ -111,6 +113,7 @@ tooltip label {
 /* Each critical that should blink */
 #mode,
 #custom-mem.critical,
+#custom-radeonmem.critical,
 #temperature.critical,
 #battery.critical.discharging {
     animation-name: blink-critical;
@@ -121,6 +124,7 @@ tooltip label {
 #network.disconnected,
 #bluetooth.disconnected,
 #custom-mem.warning,
+#custom-radeonmem.warning,
 #cpu.warning,
 #temperature.warning,
 #custom-media.custom-Paused,
