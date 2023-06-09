@@ -33,7 +33,9 @@ jgit
 Mendeley Reference Manager
 neofetch
 obs-studio
-OpenRGB
+OpenRGB/logs
+OpenRGB/plugins
+OpenRGB/*.orp
 OpenSCAD
 pokemmo
 remmina
