@@ -70,7 +70,8 @@ tooltip label {
 #bluetooth,
 #network,
 #pulseaudio,
-#custom-radeontop,
+#custom-gpu,
+#custom-radeonmem,
 #custom-updates,
 #backlight,
 #custom-weather,
@@ -168,7 +169,7 @@ tooltip label {
     margin-right: 0;
 }
 #cpu,
-#custom-radeontop.custom-gpu {
+#custom-gpu {
     margin-right: 0;
     border-radius: 3px 0px 0px 3px;
 }
@@ -178,7 +179,7 @@ tooltip label {
     border-radius: 0px 0px 0px 0px;
 }
 #memory,
-#custom-radeontop.custom-mem {
+#custom-radeonmem {
     margin-left: 0;
     border-radius: 0 3px 3px 0;
 }

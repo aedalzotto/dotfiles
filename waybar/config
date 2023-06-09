@@ -7,7 +7,7 @@
     "margin-top": 4,
     "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
     //"modules-center": ["cpu", "temperature", "memory", "disk", "battery"],
-    "modules-center": ["cpu", "temperature", "memory", "custom/radeontop", "temperature#gpu", "custom/radeontop#mem", "disk", "disk#storage"],
+    "modules-center": ["cpu", "temperature", "memory", "custom/gpu", "temperature#gpu", "custom/radeonmem", "disk", "disk#storage"],
     "modules-right": ["custom/updates", "pulseaudio", "network", "bluetooth", "tray", "custom/weather", "clock", "custom/swaync"],
     "sway/workspaces": {
         "disable-scroll": true,
@@ -95,13 +95,13 @@
         },
         "on-click": "foot $HOME/.config/waybar/custom_modules/update-script.sh" // todo: send a signal to the updates.py script to update its status
     },
-    "custom/radeontop": {
-        "exec": "$HOME/.config/waybar/custom_modules/radeontop.py gpu",
-        "format": "{}% ",
-        "return-type": "json"
+    "custom/gpu": {
+        "exec": "cat /sys/class/drm/card0/device/gpu_busy_percent",
+        "interval": 1,
+        "format": "{}% "
     },
-    "custom/radeontop#mem": {
-        "exec": "$HOME/.config/waybar/custom_modules/radeontop.py mem",
+    "custom/radeonmem": {
+        "exec": "$HOME/.config/waybar/custom_modules/radeonmem.py",
         "format": "{} ",
         "return-type": "json"
     },
