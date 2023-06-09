@@ -67,7 +67,7 @@
     "disk#storage": {
         "interval": 30,
         "format": "{free} ",
-        "path": "/mnt/backups"
+        "path": "/var/local/angelo"
     },
     "custom/media": {
         "format": "{icon} {}",
