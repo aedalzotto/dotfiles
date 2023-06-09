@@ -62,7 +62,7 @@ tooltip label {
 /* Each module */
 #battery,
 #cpu,
-#memory,
+#custom-mem,
 #temperature,
 #clock,
 #tray,
@@ -90,7 +90,7 @@ tooltip label {
 
 /* Each module that should blink */
 #mode,
-#memory,
+#custom-mem,
 #temperature,
 #battery {
     animation-timing-function: linear;
@@ -99,7 +99,7 @@ tooltip label {
 }
 
 /* Each critical module */
-#memory.critical,
+#custom-mem.critical,
 #cpu.critical,
 #temperature.critical,
 #battery.critical {
@@ -108,7 +108,7 @@ tooltip label {
 
 /* Each critical that should blink */
 #mode,
-#memory.critical,
+#custom-mem.critical,
 #temperature.critical,
 #battery.critical.discharging {
     animation-name: blink-critical;
@@ -118,7 +118,7 @@ tooltip label {
 /* Each warning */
 #network.disconnected,
 #bluetooth.disconnected,
-#memory.warning,
+#custom-mem.warning,
 #cpu.warning,
 #temperature.warning,
 #custom-media.custom-Paused,
@@ -178,7 +178,7 @@ tooltip label {
     margin-right: 0;
     border-radius: 0px 0px 0px 0px;
 }
-#memory,
+#custom-mem,
 #custom-radeonmem {
     margin-left: 0;
     border-radius: 0 3px 3px 0;

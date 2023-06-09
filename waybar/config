@@ -7,7 +7,7 @@
     "margin-top": 4,
     "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
     //"modules-center": ["cpu", "temperature", "memory", "disk", "battery"],
-    "modules-center": ["cpu", "temperature", "memory", "custom/gpu", "temperature#gpu", "custom/radeonmem", "disk", "disk#storage"],
+    "modules-center": ["cpu", "temperature", "custom/mem", "custom/gpu", "temperature#gpu", "custom/radeonmem", "disk", "disk#storage"],
     "modules-right": ["custom/updates", "pulseaudio", "network", "bluetooth", "tray", "custom/weather", "clock", "custom/swaync"],
     "sway/workspaces": {
         "disable-scroll": true,
@@ -37,8 +37,10 @@
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["", "", "", "", ""]
     },
-    "memory": {
-        "format": "{used:0.1f}G/{total:0.1f}G "
+    "custom/mem": {
+        "exec": "$HOME/.config/waybar/custom_modules/mem.py",
+        "format": "{} ",
+        "return-type": "json"
     },
     "pulseaudio": {
         "scroll-step": 5,
