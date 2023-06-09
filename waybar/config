@@ -8,7 +8,7 @@
     "modules-left": ["sway/workspaces", "sway/mode", "custom/media", "gamemode"],
     //"modules-center": ["cpu", "temperature", "memory", "disk", "battery"],
     "modules-center": ["cpu", "temperature", "custom/mem", "custom/gpu", "temperature#gpu", "custom/radeonmem", "disk", "disk#storage"],
-    "modules-right": ["custom/updates", "pulseaudio", "network", "bluetooth", "tray", "custom/weather", "clock", "custom/swaync"],
+    "modules-right": ["custom/updates", "pulseaudio", "network", "bluetooth", "tray", "custom/weather", "clock", "idle_inhibitor", "custom/swaync"],
     "sway/workspaces": {
         "disable-scroll": true,
         "disable-markup" : false,
@@ -183,5 +183,12 @@
         "icon-size": 0,
         "tooltip": true,
         "tooltip-format": "Games running: {count}"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
     }
 }
