@@ -1,5 +1,5 @@
 [Unit]
-Description=Background setup with azote
+Description=Wallpaper & color manager for wlroots-based compositors and some X11 WMs
 PartOf=graphical-session.target
 After=graphical-session.target
 
