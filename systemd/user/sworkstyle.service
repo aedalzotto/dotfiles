@@ -1,0 +1,11 @@
+[Unit]
+Description=This tool will rename workspaces to the icons configured
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/sworkstyle
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target
