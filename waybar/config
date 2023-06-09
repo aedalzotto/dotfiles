@@ -5,7 +5,7 @@
     //"width": 1912,
     "width": 2552,
     "margin-top": 4,
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
+    "modules-left": ["sway/workspaces", "sway/mode", "custom/media", "gamemode"],
     //"modules-center": ["cpu", "temperature", "memory", "disk", "battery"],
     "modules-center": ["cpu", "temperature", "custom/mem", "custom/gpu", "temperature#gpu", "custom/radeonmem", "disk", "disk#storage"],
     "modules-right": ["custom/updates", "pulseaudio", "network", "bluetooth", "tray", "custom/weather", "clock", "custom/swaync"],
@@ -171,6 +171,17 @@
         "tooltip-format": "Bluetooth {status}",
         "tooltip-format-connected": "Connected:\n{device_enumerate}",
         "on-click": "blueberry"
+    },
+    "gamemode": {
+        "format": "{glyph}",
+        "format-alt": "{glyph} {count}",
+        "glyph": "",
+        "hide-not-running": true,
+        "use-icon": false,
+        "icon-name": "input-gaming-symbolic",
+        "icon-spacing": 0,
+        "icon-size": 0,
+        "tooltip": true,
+        "tooltip-format": "Games running: {count}"
     }
-
 }

@@ -76,6 +76,7 @@ tooltip label {
 #backlight,
 #custom-weather,
 #custom-media,
+#gamemode,
 #disk {
     background-color: @modulesbg;
     padding-left: 0.6em;
@@ -197,6 +198,7 @@ tooltip label {
 #temperature.critical,
 #bluetooth.disabled,
 #custom-updates.custom-update,
+#gamemode.running,
 #pulseaudio.muted {
     background: @critical;
     color: @bg;
