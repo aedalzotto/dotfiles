@@ -39,6 +39,7 @@
     },
     "custom/mem": {
         "exec": "$HOME/.config/waybar/custom_modules/mem.py",
+        "interval": 1,
         "format": "{} ",
         "return-type": "json"
     },
@@ -104,6 +105,7 @@
     },
     "custom/radeonmem": {
         "exec": "$HOME/.config/waybar/custom_modules/radeonmem.py",
+        "interval": 1,
         "format": "{} ",
         "return-type": "json"
     },
