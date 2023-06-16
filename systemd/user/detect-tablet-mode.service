@@ -1,0 +1,11 @@
+[Unit]
+Description=Detects both normal & tablet mode, executing custom scripts/commands for each mode
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/watch_tablet
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

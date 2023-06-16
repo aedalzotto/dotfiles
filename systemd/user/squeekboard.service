@@ -1,0 +1,11 @@
+[Unit]
+Description=An on-screen-keyboard input method for Wayland
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/squeekboard
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

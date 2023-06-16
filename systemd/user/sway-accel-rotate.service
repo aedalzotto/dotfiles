@@ -1,0 +1,11 @@
+[Unit]
+Description=Rotate Sway outputs based on current accelerometer orientation using iio-sensor-proxy
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/sway-accel-rotate
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target
