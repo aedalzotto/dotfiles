@@ -1,11 +1,12 @@
 [Unit]
 Description=Wallpaper & color manager for wlroots-based compositors and some X11 WMs
 PartOf=graphical-session.target
-After=graphical-session.target
+Wants=sway-session.target
+After=sway-session.target
 
 [Service]
 ExecStart=%h/.azotebg
 Restart=on-failure
 
 [Install]
-WantedBy=graphical-session.target
+WantedBy=sway-session.target
