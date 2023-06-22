@@ -1,11 +1,12 @@
 [Unit]
 Description=Automatically alternates container layouts between horizontal and vertical
 PartOf=graphical-session.target
-After=graphical-session.target
+Wants=sway-session.target
+After=sway-session.target
 
 [Service]
 ExecStart=/usr/bin/autotiling-rs
 Restart=on-failure
 
 [Install]
-WantedBy=graphical-session.target
+WantedBy=sway-session.target
