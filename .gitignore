@@ -41,7 +41,9 @@ pokemmo
 remmina
 RogueLegacy
 simple-scan
-sunshine
+sunshine/sunshine_*
+sunshine/credentials
+sunshine/sunshine.log
 teamviewer
 torbrowser
 transmission-remote-gtk

@@ -1,0 +1,80 @@
+{
+    "env": {
+        "PATH": "$(PATH):$(HOME)\/.local\/bin"
+    },
+    "apps": [
+        {
+            "name": "Desktop FHD",
+            "image-path": "desktop.png",
+            "prep-cmd": [
+                {
+                    "do": "\/home\/angelo\/.local\/bin\/change_output_mode 1920x1080@120Hz",
+                    "undo": ""
+                }
+            ],
+            "exclude-global-prep-cmd": "false"
+        },
+        {
+            "name": "Steam Big Picture FHD",
+            "detached": [
+                "setsid steam steam:\/\/open\/bigpicture"
+            ],
+            "image-path": "steam.png",
+            "exclude-global-prep-cmd": "false",
+            "prep-cmd": [
+                {
+                    "do": "\/home\/angelo\/.local\/bin\/change_output_mode 1920x1080@120Hz",
+                    "undo": ""
+                }
+            ]
+        },
+        {
+            "name": "Desktop HD",
+            "output": "",
+            "cmd": "",
+            "exclude-global-prep-cmd": "false",
+            "elevated": "false",
+            "image-path": "desktop.png",
+            "prep-cmd": [
+                {
+                    "do": "\/home\/angelo\/.local\/bin\/change_output_mode 1280x720@120Hz",
+                    "undo": ""
+                }
+            ]
+        },
+        {
+            "name": "Resident Evil 7",
+            "output": "",
+            "cmd": "",
+            "exclude-global-prep-cmd": "false",
+            "elevated": "false",
+            "image-path": "\/home\/angelo\/.config\/sunshine\/covers\/igdb_19562.png",
+            "prep-cmd": [
+                {
+                    "do": "\/home\/angelo\/.local\/bin\/change_output_mode 1920x1080@120Hz",
+                    "undo": ""
+                }
+            ],
+            "detached": [
+                "setsid steam steam:\/\/rungameid\/418370"
+            ]
+        },
+        {
+            "name": "Need for Speed: Undercover",
+            "output": "",
+            "cmd": "",
+            "exclude-global-prep-cmd": "false",
+            "elevated": "false",
+            "image-path": "\/home\/angelo\/.config\/sunshine\/covers\/igdb_101.png",
+            "prep-cmd": [
+                {
+                    "do": "\/home\/angelo\/.local\/bin\/change_output_mode 1280x720@30Hz",
+                    "undo": ""
+                }
+            ],
+            "detached": [
+                "setsid steam steam:\/\/rungameid\/17430"
+            ]
+        }
+    ]
+}
