@@ -5,8 +5,9 @@ Wants=sway-session.target
 After=sway-session.target
 
 [Service]
+Type=oneshot
 ExecStart=%h/.azotebg
-Restart=on-failure
+RemainAfterExit=yes
 
 [Install]
 WantedBy=sway-session.target
