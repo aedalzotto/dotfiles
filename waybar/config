@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 38,
+    "height": 36,
     //"width": 1912,
     "width": 2552,
     "margin-top": 4,
@@ -85,7 +85,6 @@
         "on-click-middle": "playerctl play-pause",
         "escape": true,
         "exec": "$HOME/.config/waybar/custom_modules/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/updates": {
         "exec": "$HOME/.config/waybar/custom_modules/updates.py -f \"paru -Qua\" -i 3600",
