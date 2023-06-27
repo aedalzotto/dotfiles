@@ -70,10 +70,8 @@ bar swaybar_command waybar
 ### Look and Feel
 # Font, borders, and gaps
 #font pango:monospace 0
-titlebar_border_thickness 0
-titlebar_padding 0
 gaps inner 4
-default_border pixel 4
+default_border pixel 2
 default_floating_border pixel 2
 
 # Colours
