@@ -1,2 +1,3 @@
-timeout 300 'swaymsg "output * dpms off" && openrgb -sp temp && openrgb -d 1 -m off && openrgb -d 0 -m off' resume 'swaymsg "output * dpms on" && openrgb -p temp'
+timeout 120 'pulsarctl brightness 0 && openrgb -sp temp && openrgb -d 1 -m off && openrgb -d 0 -m off' resume 'pulsarctl brightness 64 && openrgb -p temp'
+timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
 timeout 600 'swaylock'
