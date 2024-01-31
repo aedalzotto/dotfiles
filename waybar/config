@@ -2,11 +2,9 @@
     "layer": "top",
     "position": "top",
     "height": 36,
-    //"width": 1912,
-    "width": 2552,
+    "width": 3432,
     "margin-top": 4,
     "modules-left": ["sway/workspaces", "sway/mode", "custom/media", "gamemode"],
-    //"modules-center": ["cpu", "temperature", "memory", "disk", "battery"],
     "modules-center": ["cpu", "temperature", "custom/mem", "custom/gpu", "temperature#gpu", "custom/radeonmem", "disk", "disk#storage"],
     "modules-right": ["custom/updates", "pulseaudio", "network", "bluetooth", "tray", "custom/weather", "clock", "idle_inhibitor", "custom/swaync"],
     "sway/workspaces": {
@@ -32,7 +30,8 @@
     },
     "temperature": {
         "interval": 1,
-        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+        "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
+        "input-filename": "temp2_input",
         "critical-threshold": 75,
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["", "", "", "", ""]
@@ -98,7 +97,7 @@
         "on-click": "foot $HOME/.config/waybar/custom_modules/update-script.sh" // todo: send a signal to the updates.py script to update its status
     },
     "custom/gpu": {
-        "exec": "cat /sys/class/drm/card0/device/gpu_busy_percent",
+        "exec": "cat /sys/class/drm/card1/device/gpu_busy_percent",
         "interval": 1,
         "format": "{}% "
     },
@@ -110,7 +109,8 @@
     },
     "temperature#gpu": {
         "interval": 1,
-        "hwmon-path": "/sys/class/drm/card0/device/hwmon/hwmon2/temp1_input",
+        "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:03.1/0000:29:00.0/0000:2a:00.0/0000:2b:00.0/hwmon",
+        "input-filename": "temp1_input",
         "critical-threshold": 75,
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["", "", "", "", ""]
@@ -134,19 +134,6 @@
         "on-click": "swaync-client -t -sw",
         "on-click-right": "swaync-client -d -sw",
         "escape": true
-    },
-    "battery": {
-        "format": "{capacity}% {icon}",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""],
-        "format-charging": "{capacity}% ",
-        "interval": 30,
-        "design-capacity": true,
-        "full-at": 96,
-        "states": {
-            "warning": 25,
-            "critical": 10
-        }
     },
     "network": {
         "format": "",
