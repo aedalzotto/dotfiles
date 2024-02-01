@@ -1,0 +1,12 @@
+[Unit]
+Description=Wallpaper manager for wlroots-based compositors and some other WMs (hyprland)
+Documentation=https://github.com/nwg-piotr/azote
+BindsTo=hyprland-session.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.azotebg-hyprland
+RemainAfterExit=yes
+
+[Install]
+WantedBy=hyprland-session.target
