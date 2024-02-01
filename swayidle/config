@@ -1,5 +1,5 @@
-timeout 5 'light -s sysfs/leds/platform::kbd_backlight -O && light -s sysfs/leds/platform::kbd_backlight -S 0' resume 'light -s sysfs/leds/platform::kbd_backlight -I'
-timeout 10 'light -O && light -T 0.1' resume 'light -I'
-timeout 60 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
+timeout 10 'light -s sysfs/leds/platform::kbd_backlight -O && light -s sysfs/leds/platform::kbd_backlight -S 0' resume 'light -s sysfs/leds/platform::kbd_backlight -I'
+timeout 30 'light -O && light -T 0.1' resume 'light -I'
+timeout 60 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
 timeout 120 'swaylock'
 timeout 600 'systemctl suspend-then-hibernate' before-sleep 'swaylock'
