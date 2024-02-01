@@ -6,7 +6,7 @@ GenericName=Insync
 Comment=Launch Insync
 Icon=insync
 Categories=Network;
-Exec=insync start
+Exec=insync start --qt-qpa-platform=xcb
 TryExec=insync
 Terminal=false
 X-GNOME-Autostart-Delay=3
