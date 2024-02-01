@@ -92,6 +92,7 @@ tooltip label {
 
 /* Each module that should blink */
 #mode,
+#submap,
 #custom-mem,
 #custom-radeonmem,
 #temperature,
@@ -112,6 +113,7 @@ tooltip label {
 
 /* Each critical that should blink */
 #mode,
+#submap,
 #custom-mem.critical,
 #custom-radeonmem.critical,
 #temperature.critical,
@@ -136,9 +138,11 @@ tooltip label {
 
 /* And now modules themselves in their respective order */
 
+#submap,
 #mode { /* Shown current Sway mode (resize etc.) */
     color: @bg;
     background: @mode;
+    padding: 0 5;
 }
 
 #workspaces button {
@@ -148,6 +152,13 @@ tooltip label {
     opacity: 0.3;
     background: none;
     font-size: 1em;
+}
+
+#workspaces button.active {
+    background-color: @workspacesfocused;
+    color: @bg;
+    opacity: 1;
+    padding: 0 0.4em;
 }
 
 #workspaces button.focused {
