@@ -54,7 +54,11 @@ def fetch(fetch_cmd):
  
 	# First, lets call 'checkupdates'
 	checkupdates = ["checkupdates"]
-	pacman_updates = check_output(checkupdates, stderr=DEVNULL, universal_newlines=True).split('\n')[:-1]
+	pacman_updates = []
+	try:
+		pacman_updates = check_output(checkupdates, stderr=DEVNULL, universal_newlines=True).split('\n')[:-1]
+	except:
+		pass
 
 	aur_updates = []
 	if(fetch_cmd != ""):
