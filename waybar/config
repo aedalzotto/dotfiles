@@ -107,7 +107,8 @@
     },
     "temperature#gpu": {
         "interval": 1,
-        "hwmon-path": "/sys/class/drm/card0/device/hwmon/hwmon2/temp1_input",
+        "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
+        "input-filename": "temp2_input",
         "critical-threshold": 75,
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["", "", "", "", ""]
