@@ -1255,9 +1255,9 @@
             "height": 555,
             "load_geometry": true,
             "save_on_exit": true,
-            "width": 901,
-            "x": 0,
-            "y": 0
+            "width": 913,
+            "x": 1263,
+            "y": 442
         },
         "greyscale_tray_icon": false,
         "language": "default",
