@@ -1,0 +1,11 @@
+[Unit]
+Description=Listen iio-sensor-proxy and auto change Hyprland output orientation
+Documentation=https://github.com/JeanSchoeller/iio-hyprland
+BindsTo=hyprland-session.target
+
+[Service]
+ExecStart=/usr/local/bin/iio-hyprland
+Restart=on-failure
+
+[Install]
+WantedBy=hyprland-session.target
