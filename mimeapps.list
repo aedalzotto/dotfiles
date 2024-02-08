@@ -22,6 +22,8 @@ x-scheme-handler/etcher=balena-etcher.desktop
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=google-chrome.desktop
 text/csv=google-chrome.desktop
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=google-chrome.desktop
+application/x-shellscript=sublime_text.desktop
+text/x-csrc=sublime_text.desktop
 
 [Added Associations]
 application/octet-stream=sublime_text.desktop;org.gnome.GHex.desktop;
@@ -41,3 +43,5 @@ image/svg+xml=google-chrome.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=google-chrome.desktop;
 text/csv=google-chrome.desktop;
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=google-chrome.desktop;
+application/x-shellscript=sublime_text.desktop;
+text/x-csrc=sublime_text.desktop;
