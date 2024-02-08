@@ -73,6 +73,7 @@ tooltip label {
 #custom-gpu,
 #custom-radeonmem,
 #custom-updates,
+#custom-codec,
 #backlight,
 #custom-weather,
 #custom-media,
@@ -232,4 +233,26 @@ tooltip label {
 #custom-media.custom-Playing {
     background-color: @workspacesfocused;
     color: #2d333b;
+}
+
+#custom-codec.custom-LDAC {
+    color: #ffffff;
+}
+
+#custom-codec.custom-aptX,
+#custom-codec.custom-aptX\-LL {
+    color: #674EA7;
+}
+
+#custom-codec.custom-AAC {
+    color: #00FFFF;
+}
+
+#custom-codec.custom-aptx\-HD {
+    color: #FFE599;
+}
+
+#custom-codec.custom-SBC\-XQ,
+#custom-codec.custom-SBC {
+    color: #1B6AFF;
 }

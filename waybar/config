@@ -6,7 +6,7 @@
     "margin-top": 4,
     "modules-left": ["hyprland/workspaces", "hyprland/submap", "sway/workspaces", "sway/mode", "custom/media", "gamemode"],
     "modules-center": ["cpu", "temperature", "custom/mem", "custom/gpu", "temperature#gpu", "custom/radeonmem", "disk", "disk#storage"],
-    "modules-right": ["custom/updates", "pulseaudio", "network", "bluetooth", "tray", "custom/weather", "clock", "idle_inhibitor", "custom/swaync"],
+    "modules-right": ["custom/updates", "custom/codec", "pulseaudio", "network", "bluetooth", "tray", "custom/weather", "clock", "idle_inhibitor", "custom/swaync"],
     "hyprland/workspaces": {
         "show-special": true,
         "format": "{windows}",
@@ -110,6 +110,15 @@
             "updated": ""
         },
         "on-click": "foot $HOME/.config/waybar/custom_modules/update-script.sh" // todo: send a signal to the updates.py script to update its status
+    },
+    "custom/codec": {
+        "exec": "$HOME/.config/waybar/custom_modules/codecs.py",
+        "interval": 10,
+        "return-type": "json",
+        "format": "{}",
+        "signal": 10,
+        "on-click": "$HOME/.config/waybar/custom_modules/codecs.py -p && sleep 2 && pkill -RTMIN+10 waybar",
+        "on-click-right": "$HOME/.config/waybar/custom_modules/codecs.py -n && sleep 2 && pkill -RTMIN+10 waybar"
     },
     "custom/gpu": {
         "exec": "cat /sys/class/drm/card1/device/gpu_busy_percent",
