@@ -24,9 +24,10 @@ def main(next, previous):
     index += 1
     while cards[index].split(' ')[0] != "\tActive":
         profile = cards[index].split(' ')[0].split('\t')[2][:-1]
-        codec = cards[index].split('(')[1].split(',')[1].split(' ')[2][:-1]
-        if profile.split('-')[0] == "a2dp":
-            profiles[profile] = codec
+        if profile not in ["off", "headset-head-unit", "headset-head-unit-cvsd"]:
+            codec = cards[index].split('(')[1].split(',')[1].split(' ')[2][:-1]
+            if profile.split('-')[0] == "a2dp":
+                profiles[profile] = codec
         index += 1
 
     active_profile = cards[index].split(' ')[2]
