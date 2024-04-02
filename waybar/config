@@ -16,7 +16,8 @@
             "class<code-url-handler>": "",
             "class<kitty>": "",
             "class<foot>": "",
-            "class<subl>": ""
+            "class<subl>": "",
+            "class<evince>": ""
         }
     },
     "hyprland/submap": {
