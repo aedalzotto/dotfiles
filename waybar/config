@@ -140,7 +140,7 @@
         "format-icons": ["", "", "", "", ""]
     },
     "custom/weather": {
-        "exec": "curl https://wttr.in/?format=1",
+        "exec": "curl https://wttr.in/poa?format=1",
         "interval": 1800,
         "on-click": "xdg-open https://wttr.in/"
     },
@@ -175,7 +175,8 @@
             "disconnected": [""],
             "linked": [""]
         },
-        "on-click": "connman-gtk"
+        "on-click": "iwgtk",
+        "on-click-right": "nm-connection-editor"
     },
     "bluetooth": {
         "format": "",
