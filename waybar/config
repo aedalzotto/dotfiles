@@ -47,7 +47,7 @@
         "interval": 1,
         "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
         "input-filename": "temp2_input",
-        "critical-threshold": 75,
+        "critical-threshold": 80,
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["", "", "", "", ""]
     },
@@ -121,7 +121,7 @@
         "on-click-right": "$HOME/.config/waybar/custom_modules/codecs.py -n && sleep 2 && pkill -RTMIN+10 waybar"
     },
     "custom/gpu": {
-        "exec": "cat /sys/class/drm/card1/device/gpu_busy_percent",
+        "exec": "cat /sys/class/drm/card0/device/gpu_busy_percent",
         "interval": 1,
         "format": "{}% "
     },
@@ -133,9 +133,9 @@
     },
     "temperature#gpu": {
         "interval": 1,
-        "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:03.1/0000:29:00.0/0000:2a:00.0/0000:2b:00.0/hwmon",
-        "input-filename": "temp1_input",
-        "critical-threshold": 75,
+        "hwmon-path-abs": "/sys/class/drm/card0/device/hwmon",
+        "input-filename": "temp2_input",
+        "critical-threshold": 80,
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["", "", "", "", ""]
     },
