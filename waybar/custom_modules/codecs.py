@@ -8,10 +8,15 @@ def main(next, previous):
     cards = check_output(["pactl", "list", "cards"], universal_newlines=True)[:-1].split('\n')
 
     index = 0
+    if index >= len(cards):
+        return
+
     while cards[index + 1].split(' ')[1].split('.')[0] != "bluez_card":
         index += 1
         while cards[index].split(' ')[0] != "Card":
             index += 1
+            if index >= len(cards):
+                return
 
     index += 1
     card = cards[index].split(' ')[1]
