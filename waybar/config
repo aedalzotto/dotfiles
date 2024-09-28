@@ -86,7 +86,7 @@
         "path": "/mnt/backups"
     },
     "custom/media": {
-        "format": "{icon} {}",
+        "format": "{icon} {0}",
         "return-type": "json",
         "max-length": 40,
         "format-icons": {
