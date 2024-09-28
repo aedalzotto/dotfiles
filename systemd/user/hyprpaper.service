@@ -1,0 +1,10 @@
+[Unit]
+Description=A blazing fast wayland wallpaper utility with IPC controls
+Documentation=https://github.com/hyprwm/hyprpaper
+BindsTo=hyprland-session.target
+
+[Service]
+ExecStart=/usr/bin/hyprpaper
+
+[Install]
+WantedBy=hyprland-session.target
