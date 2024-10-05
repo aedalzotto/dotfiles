@@ -82,4 +82,7 @@ google-chrome-backup
 retroarch
 google-chrome-backup-crashrecovery-*
 chromium
-
+krita*
+swtpm*
+gnome-boxes
+libvirt
