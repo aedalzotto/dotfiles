@@ -84,7 +84,7 @@
     "disk#storage": {
         "interval": 30,
         "format": "{free} ",
-        "path": "/var/local/angelo"
+        "path": "/zroot"
     },
     "custom/media": {
         "format": "{icon} {0}",
