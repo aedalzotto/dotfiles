@@ -84,7 +84,7 @@
     "disk#storage": {
         "interval": 30,
         "format": "{free} ",
-        "path": "/zroot"
+        "path": "/var/local/ps2"
     },
     "custom/media": {
         "format": "{icon} {0}",
