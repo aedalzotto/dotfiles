@@ -1,9 +1,10 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 36,
-    "width": 1912,
-    "margin-top": 4,
+    "height": 42,
+    "margin-top": 10,
+    "margin-left": 10,
+    "margin-right": 10,
     "modules-left": ["custom/tablet#close", "custom/tablet#menu", "hyprland/workspaces", "hyprland/submap", "sway/workspaces", "sway/mode", "custom/media", "gamemode"],
     "modules-center": ["cpu", "temperature", "custom/mem", "disk", "battery"],
     "modules-right": ["custom/updates", "custom/codec", "pulseaudio", "network", "bluetooth", "tray", "custom/weather", "clock", "idle_inhibitor", "custom/swaync"],

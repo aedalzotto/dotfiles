@@ -37,7 +37,7 @@
 * {
     font-family: Cantarell, "Font Awesome 6 Pro Solid", "Font Awesome 6 Pro Brands";
     border: none;
-    border-radius: 3px;
+    border-radius: 10px;
     min-height: 0;
     margin: 0.2em 0.3em 0.2em 0.3em;
 }
