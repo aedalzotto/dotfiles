@@ -26,7 +26,6 @@ evince
 gconf
 GIMP
 goa-1.0
-gtk-2.0
 ibus
 inkscape
 jgit
@@ -98,3 +97,6 @@ gtk-4.0
 Nextcloud
 Kitware
 BraveSoftware
+depot_tools
+git
+Unknown Organization/zoom.conf
