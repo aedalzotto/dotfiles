@@ -26,7 +26,6 @@ evince
 gconf
 GIMP
 goa-1.0
-gtk-2.0
 ibus
 inkscape
 jgit
@@ -62,7 +61,6 @@ freerdp
 Pinta
 dev-manager-desktop
 ros.org
-qt5ct
 gtk-3.0/bookmarks
 jellyfin.org
 miopen
@@ -95,3 +93,6 @@ go
 gtk-4.0
 Kitware
 BraveSoftware
+depot_tools
+git
+Unknown Organization/zoom.conf
