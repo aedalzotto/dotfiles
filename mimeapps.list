@@ -28,6 +28,8 @@ text/x-makefile=sublime_text.desktop
 image/avif=google-chrome.desktop
 application/vnd.openxmlformats-officedocument.presentationml.presentation=google-chrome.desktop
 application/json=sublime_text.desktop
+text/x-chdr=sublime_text.desktop
+image/gif=org.gnome.Shotwell-Viewer.desktop
 
 [Added Associations]
 application/octet-stream=sublime_text.desktop;org.gnome.GHex.desktop;
@@ -53,3 +55,5 @@ text/x-makefile=sublime_text.desktop;
 image/avif=google-chrome.desktop;
 application/vnd.openxmlformats-officedocument.presentationml.presentation=google-chrome.desktop;
 application/json=sublime_text.desktop;
+text/x-chdr=sublime_text.desktop;
+image/gif=org.gnome.Shotwell-Viewer.desktop;
