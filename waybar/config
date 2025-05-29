@@ -5,33 +5,28 @@
     "margin-top": 10,
     "margin-left": 10,
     "margin-right": 10,
-    "modules-left": ["custom/tablet#close", "custom/tablet#menu", "hyprland/workspaces", "hyprland/submap", "sway/workspaces", "sway/mode", "custom/media", "gamemode"],
+    "modules-left":   ["custom/tablet#close", "custom/tablet#menu", "hyprland/workspaces", "hyprland/submap", "custom/media", "gamemode"],
     "modules-center": ["cpu", "temperature", "custom/mem", "disk", "battery"],
-    "modules-right": ["custom/updates", "custom/codec", "pulseaudio", "network", "bluetooth", "tray", "custom/weather", "clock", "idle_inhibitor", "custom/swaync"],
+    "modules-right":  ["custom/updates", "custom/codec", "pulseaudio", "bluetooth", "network", "tray", "custom/weather", "clock", "idle_inhibitor", "custom/swaync"],
     "hyprland/workspaces": {
         "show-special": true,
         "format": "{windows}",
         "window-rewrite-default": "",
         "window-rewrite": {
             "class<google-chrome>": "",
-            "class<code-url-handler>": "",
+            "class<brave-browser>": "",
+            "class<code>": "",
             "class<kitty>": "",
             "class<foot>": "",
             "class<subl>": "",
-            "class<evince>": ""
+            "class<evince>": "",
+            "class<tidal-hifi>": "",
+            "class<steam>": "",
+            "class<org.gnome.Calendar>": ""
         }
     },
     "hyprland/submap": {
         "tooltip": false
-    },
-    "sway/workspaces": {
-        "disable-scroll": true,
-        "disable-markup" : false,
-        "all-outputs": true,
-        "format": "{name}"
-    },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
     },
     "tray": {
         "icon-size": 21,
@@ -60,7 +55,6 @@
     "pulseaudio": {
         "scroll-step": 5,
         "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% ",
         "format-muted": "",
         "format-icons": {
             "default": ["", "", "", ""],
@@ -193,9 +187,9 @@
     },
     "bluetooth": {
         "format": "",
-        "format-connected-battery": "{device_battery_percentage}% ",
+        "format-connected-battery": "{device_battery_percentage}% ",
         "tooltip-format": "Bluetooth {status}",
-        "tooltip-format-connected": "Connected:\n{device_enumerate}",
+        "tooltip-format-connected": "Connected:\n{device_alias}",
         "on-click": "blueberry"
     },
     "custom/tablet#menu": {
