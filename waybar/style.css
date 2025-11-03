@@ -1,65 +1,101 @@
 /* COLORS */
+@define-color primary #D0BCFF;
+@define-color primary-container #4F378B;
+@define-color on-primary-container #EADDFF;
 
-/* Github Dark Dimmed */
-@define-color bg #1c2128;
-@define-color fg #adbac7;
-@define-color light #909dab;
-@define-color warning #c69026;
-@define-color critical #f47067;
-@define-color mode #636e7b;
-@define-color workspacesfocused #539bf5;
-@define-color modulesbg #2d333b;
 
-@keyframes blink-warning {
-    70% {
-        color: @bg;
-    }
+@define-color secondary-container #4A4458;
+@define-color on-secondary-container #E8DEF8;
 
-    to {
-        color: @bg;
-        background-color: @warning;
-    }
-}
+@define-color tertiary-container #633B48;
+@define-color on-tertiary-container #FFD8E4;
+
+@define-color error-container #8C1D18;
+@define-color on-error-container #F9DEDC;
+
+@define-color surface-container #211F26;
+@define-color on-surface #E6E0E9;
 
 @keyframes blink-critical {
-    70% {
-      color: @bg;
+    100% {
+        color: @on-secondary-container;
+        background-color: @secondary-container;
     }
 
     to {
-        color: @bg;
-        background-color: @critical;
+        color: @on-error-container;
+        background-color: @error-container;
     }
 }
-
 
 /* Reset all styles */
 * {
     font-family: Cantarell, "Font Awesome 6 Pro Solid", "Font Awesome 6 Brands";
-    border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     min-height: 0;
-    margin: 0.2em 0.3em 0.2em 0.3em;
+    padding: 0px;
+    margin: 0px 1px;
+    background-color: transparent;
+    border: none;
 }
 
-tooltip {
-    background: rgba(38, 79, 120, 0.5);
-    border: 2px solid @bg;
-    border-radius: 10px;
-}
-tooltip label {
-    color: @fg;
-}
-
-/* The whole bar */
 #waybar {
-    background: @bg;
-    color: @fg;
     font-size: 14px;
     font-weight: bold;
 }
 
-/* Each module */
+tooltip {
+    background: @surface-container;
+    border: 2px solid @primary;
+    border-radius: 10px;
+    font-size:  18px;
+    font-weight: normal;
+}
+tooltip label {
+    color: @on-surface;
+    font-size:  18px;
+    font-weight: normal;
+}
+
+/* Workspaces */
+#workspaces button {
+    background-color: @secondary-container;
+    color: @on-secondary-container;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    margin-right: 5px;
+    margin-left: 0px;
+}
+
+#workspaces button.active {
+    background-color: @primary-container;
+    color: @on-primary-container;
+}
+
+#workspaces button.urgent {
+    background-color: @error-container;
+    color: @on-error-container;
+}
+
+#workspaces button:first-child {
+    margin-left: 0px;
+}
+
+/* Primary -- for indicators */
+#pulseaudio,
+#custom-media,
+#gamemode,
+#custom-lightspeed,
+#mode,
+#gamemode {
+    background-color: @primary-container;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    margin-right: 5px;
+    margin-left: 0px;
+}
+
+/* Secondary -- for monitoring */
 #battery,
 #cpu,
 #custom-mem,
@@ -69,30 +105,90 @@ tooltip label {
 #custom-swaync,
 #bluetooth,
 #network,
-#pulseaudio,
-#custom-radeontop,
+#custom-gpu,
+#custom-radeonmem,
 #custom-updates,
 #custom-codec,
 #backlight,
 #custom-weather,
 #custom-media,
-#custom-tablet,
-#gamemode,
 #idle_inhibitor,
-#custom-lightspeed.normal,
 #disk {
-    background-color: @modulesbg;
+    background-color: @secondary-container;
+    color: @on-secondary-container;
     padding-left: 0.6em;
     padding-right: 0.6em;
-    font-weight: bold;
+    margin-right: 5px;
+    margin-left: 0px;
 }
 
-#mode {
-    padding-left: 0.6em;
-    padding-right: 0.6em;
+#custom-swaync {
+    margin-right: 0px;
 }
 
-/* Each module that should blink */
+/* Joined monitors */
+#cpu,
+#custom-gpu {
+    margin-right: 0;
+    border-radius: 50px 0px 0px 50px;
+}
+#temperature {
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 0px 0px 0px 0px;
+}
+#custom-mem,
+#custom-radeonmem {
+    margin-left: 0;
+    border-radius: 0 50px 50px 0;
+}
+#disk {
+    margin-right: 0;
+    border-radius: 50px 0px 0px 50px;
+}
+#disk.storage {
+    margin-left: 0;
+    border-radius: 0px 50px 50px 0px;
+}
+
+/* Monitors that act as indicators */
+#network.wifi,
+#network.ethernet,
+#custom-lightspeed.normal,
+#bluetooth.connected,
+#custom-media.custom-Playing {
+    background-color: @primary-container;
+    color: @on-primary-container;
+}
+
+/* Warnings */
+#network.disconnected,
+#bluetooth.disconnected,
+#custom-mem.warning,
+#custom-radeonmem.warning,
+#cpu.warning,
+#temperature.warning,
+#custom-media.custom-Paused,
+#custom-updates.custom-fetch,
+#custom-lightspeed.warning,
+#battery.warning {
+    background-color: @tertiary-container;
+    color: @on-tertiary-container;
+}
+
+/* Critical */
+#bluetooth.disabled,
+#custom-updates.custom-update,
+#idle_inhibitor.activated,
+#gamemode.running,
+#custom-swaync.notification,
+#pulseaudio.muted,
+#battery.critical.charging {
+    background-color: @error-container;
+    color: @on-error-container;
+}
+
+/* Blink configuration */
 #mode,
 #submap,
 #custom-mem,
@@ -104,159 +200,43 @@ tooltip label {
     animation-direction: alternate;
 }
 
-/* Each critical module */
-#custom-mem.critical,
-#cpu.critical,
-#temperature.critical,
-#custom-lightspeed.critical,
-#battery.critical {
-    color: @critical;
-}
-
-/* Each critical that should blink */
-#mode,
+/* Blink critical */
 #submap,
+#mode,
+#cpu.critical,
 #custom-mem.critical,
 #temperature.critical,
 #custom-lightspeed.critical,
 #battery.critical.discharging {
+    background-color: @tertiary-container;
+    color: @on-tertiary-container;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    margin: 0px 5px;
     animation-name: blink-critical;
-    animation-duration: 2s;
-}
-
-/* Each warning */
-#network.disconnected,
-#bluetooth.disconnected,
-#custom-mem.warning,
-#cpu.warning,
-#temperature.warning,
-#custom-media.custom-Paused,
-#custom-updates.custom-fetch,
-#custom-lightspeed.warning,
-#battery.warning {
-    background: @warning;
-    color: @bg;
-}
-
-/* And now modules themselves in their respective order */
-
-#submap,
-#mode { /* Shown current Sway mode (resize etc.) */
-    color: @bg;
-    background: @mode;
-    padding: 0 5;
-}
-
-#workspaces button {
-    font-weight: bold; /* Somewhy the bar-wide setting is ignored*/
-    padding: 0;
-    /*color: #999;*/
-    opacity: 0.3;
-    background: none;
-    font-size: 1em;
-}
-
-#workspaces button.active {
-    background-color: @workspacesfocused;
-    color: @bg;
-    opacity: 1;
-    padding: 0 0.4em;
-}
-
-#workspaces button.focused {
-    background: @workspacesfocused;
-    color: @bg;
-    opacity: 1;
-    padding: 0 0.4em;
-}
-
-#workspaces button.urgent {
-    border-color: @critical;
-    color: @critical;
-    opacity: 1;
-}
-
-#window {
-    margin-right: 40px;
-    margin-left: 40px;
-    font-weight: normal;
-}
-#custom-weather {
-    padding: 0 0.6em;
-}
-#custom-swaync {
-    margin-right: 0;
-}
-#cpu,
-#custom-radeontop.custom-gpu {
-    margin-right: 0;
-    border-radius: 10px 0px 0px 10px;
-}
-#temperature {
-    margin-left: 0;
-    margin-right: 0;
-    border-radius: 0px 0px 0px 0px;
-}
-#custom-mem,
-#custom-radeonmem {
-    margin-left: 0;
-    border-radius: 0 10px 10px 0;
-}
-
-/* #disk {
-    margin-right: 0;
-    border-radius: 10px 0px 0px 10px;
-}
-#disk.storage {
-    margin-left: 0;
-    border-radius: 0px 10px 10px 0px;
-} */
-
-#custom-swaync.notification,
-#temperature.critical,
-#bluetooth.disabled,
-#custom-updates.custom-update,
-#custom-tablet.custom-close,
-#gamemode.running,
-#idle_inhibitor.activated,
-#pulseaudio.muted {
-    background: @critical;
-    color: @bg;
+    animation-duration: 1s;
 }
 
 #custom-media {
+    font-size: 12px;
     min-width: 100px;
-}
-
-#network.wifi,
-#network.ethernet,
-#custom-lightspeed.normal,
-#bluetooth.connected,
-#pulseaudio,
-#custom-tablet.custom-menu,
-#custom-media.custom-Playing {
-    background-color: @workspacesfocused;
-    color: #2d333b;
 }
 
 #custom-codec.custom-LDAC {
     color: #ffffff;
 }
-
 #custom-codec.custom-aptX,
 #custom-codec.custom-aptX\-LL {
     color: #674EA7;
 }
-
 #custom-codec.custom-AAC {
     color: #00FFFF;
 }
-
 #custom-codec.custom-aptx\-HD {
     color: #FFE599;
 }
-
 #custom-codec.custom-SBC\-XQ,
 #custom-codec.custom-SBC {
     color: #1B6AFF;
 }
+
