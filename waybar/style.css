@@ -79,6 +79,7 @@ tooltip label {
 #custom-media,
 #gamemode,
 #idle_inhibitor,
+#custom-lightspeed.normal,
 #disk {
     background-color: @modulesbg;
     padding-left: 0.6em;
@@ -97,6 +98,7 @@ tooltip label {
 #custom-mem,
 #custom-radeonmem,
 #temperature,
+#custom-lightspeed,
 #battery {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
@@ -108,6 +110,7 @@ tooltip label {
 #custom-radeonmem.critical,
 #cpu.critical,
 #temperature.critical,
+#custom-lightspeed.critical,
 #battery.critical {
     color: @critical;
 }
@@ -118,6 +121,7 @@ tooltip label {
 #custom-mem.critical,
 #custom-radeonmem.critical,
 #temperature.critical,
+#custom-lightspeed.critical,
 #battery.critical.discharging {
     animation-name: blink-critical;
     animation-duration: 2s;
@@ -132,6 +136,7 @@ tooltip label {
 #temperature.warning,
 #custom-media.custom-Paused,
 #custom-updates.custom-fetch,
+#custom-lightspeed.warning,
 #battery.warning {
     background: @warning;
     color: @bg;
@@ -228,6 +233,7 @@ tooltip label {
 
 #network.wifi,
 #network.ethernet,
+#custom-lightspeed.normal,
 #bluetooth.connected,
 #pulseaudio,
 #custom-media.custom-Playing {

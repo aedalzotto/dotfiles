@@ -7,7 +7,7 @@
     "margin-right": 10,
     "modules-left":   ["hyprland/workspaces", "hyprland/submap", "custom/media", "gamemode"],
     "modules-center": ["cpu", "temperature", "custom/mem", "custom/gpu", "temperature#gpu", "custom/radeonmem", "disk", "disk#storage"],
-    "modules-right":  ["custom/updates", "custom/codec", "pulseaudio", "bluetooth", "network", "tray", "custom/weather", "clock", "idle_inhibitor", "custom/swaync"],
+    "modules-right":  ["custom/updates", "custom/codec", "bluetooth", "custom/lightspeed", "pulseaudio", "network", "tray", "custom/weather", "clock", "idle_inhibitor", "custom/swaync"],
     "hyprland/workspaces": {
         "show-special": true,
         "format": "{windows}",
@@ -18,7 +18,7 @@
             "class<code>": "",
             "class<kitty>": "",
             "class<foot>": "",
-            "class<subl>": "",
+            "class<sublime_text>": "",
             "class<tidal-hifi>": "",
             "class<steam>": "",
             "class<org.gnome.Calendar>": ""
@@ -55,18 +55,14 @@
     },
     "pulseaudio": {
         "scroll-step": 5,
-        "format": "{volume}% {icon}",
+        "format": "{icon}",
         "format-muted": "",
         "format-icons": {
-            "default": ["", "", "", ""],
-            "headphone": "",
-            "hdmi": "",
-            "handsfree": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": ""
+            "default": [" ", " ", " ", " "],
+            "headphone": [" ", " ", " ", " "],
+            "hdmi": [" ", " ", " ", " "]
         },
+        "tooltip-format": "{desc}: {volume}%",
         "on-click": "pavucontrol",
         "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "on-click-right": "$HOME/.config/waybar/custom_modules/paswitch.py"
@@ -175,10 +171,11 @@
     },
     "bluetooth": {
         "format": "",
-        "format-connected-battery": "{device_battery_percentage}% ",
+        "format-connected-battery": " {icon}",
         "tooltip-format": "Bluetooth {status}",
-        "tooltip-format-connected": "Connected:\n{device_alias}",
-        "on-click": "blueberry"
+        "tooltip-format-connected": "Connected:\n{device_alias}: {device_battery_percentage}%",
+        "on-click": "blueberry",
+        "format-icons": ["", "", "", "", ""]
     },
     "gamemode": {
         "format": "{glyph}",
@@ -198,5 +195,12 @@
             "activated": "",
             "deactivated": ""
         }
+    },
+    "custom/lightspeed": {
+        "exec": "$HOME/.config/waybar/custom_modules/lightspeed.py",
+        "return-type": "json",
+        "interval": 60,
+        "format": "{text} {icon}",
+        "format-icons": ["", "", "", "", ""]
     }
 }
