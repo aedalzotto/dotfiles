@@ -4,15 +4,20 @@ from argparse import ArgumentParser
 
 def toggle_sinks():
 	sinks = check_output(["pactl", "list", "sinks", "short"], universal_newlines=True)[:-1].split('\n')
-	# print(len(sinks))
 
 	for i in range (0, len(sinks)):
-		if "RUNNING" in sinks[i]:
+		current_sink = sinks[i].split('\t')
+		if current_sink[4] == "RUNNING" and current_sink[1] != "easyeffects_sink":
 			active = i
 			break
 
 	next_sink = (i + 1) % len(sinks)
-	sink_id = sinks[next_sink].split("\t")[0]
+	next_sink_line = sinks[next_sink].split('\t')
+	if next_sink_line[1] == "easyeffects_sink":
+		next_sink = (next_sink + 1) % len(sinks)
+
+	next_sink_line = sinks[next_sink].split('\t')
+	sink_id = next_sink_line[0]
 
 	run(["pactl", "set-default-sink", sink_id])
 
