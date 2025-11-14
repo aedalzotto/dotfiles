@@ -228,10 +228,10 @@
         }
     },
     "custom/lightspeed": {
-        "exec": "$HOME/.config/waybar/custom_modules/lightspeed.py",
+        "exec": "$HOME/.config/waybar/custom_modules/lightspeed.py 'G502 X LIGHTSPEED'",
         "return-type": "json",
         "interval": 60,
-        "format": "{text} {icon}",
+        "format": "{text}{icon}",
         "format-icons": ["", "", "", "", ""]
     }
 }
