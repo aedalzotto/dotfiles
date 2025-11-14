@@ -1,7 +1,7 @@
 {
-    "layer": "top",
+    "layer": "bottom",
     "position": "top",
-    "height": 42,
+    "height": 30,
     "margin-top": 10,
     "margin-left": 10,
     "margin-right": 10,
@@ -10,7 +10,7 @@
     "modules-right":  ["custom/updates", "custom/codec", "bluetooth", "pulseaudio", "network", "tray", "custom/weather", "clock", "idle_inhibitor", "custom/swaync"],
     "hyprland/workspaces": {
         "show-special": true,
-        "format": "{windows}",
+        "format": "{name}: {windows}",
         "window-rewrite-default": "",
         "window-rewrite": {
             "class<google-chrome>": "",
