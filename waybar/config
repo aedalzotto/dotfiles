@@ -159,8 +159,7 @@
         "format-icons": ["", "", "", "", ""],
         "format-charging": "{capacity}% ",
         "interval": 30,
-        "design-capacity": true,
-        "full-at": 96,
+        "design-capacity": false,
         "states": {
             "warning": 20,
             "critical": 5
