@@ -34,7 +34,7 @@
     border-radius: 20px;
     min-height: 0;
     padding: 0px;
-    margin: 0px 1px;
+    margin: 0px;
     background-color: transparent;
     border: none;
 }
@@ -61,24 +61,16 @@ tooltip label {
 #workspaces button {
     background-color: @secondary-container;
     color: @on-secondary-container;
-    padding-left: 0.6em;
-    padding-right: 0.6em;
+    padding: 0em 0.6em;
     margin-right: 5px;
-    margin-left: 0px;
 }
-
 #workspaces button.active {
     background-color: @primary-container;
     color: @on-primary-container;
 }
-
 #workspaces button.urgent {
     background-color: @error-container;
     color: @on-error-container;
-}
-
-#workspaces button:first-child {
-    margin-left: 0px;
 }
 
 /* Primary -- for indicators */
@@ -89,10 +81,8 @@ tooltip label {
 #mode,
 #gamemode {
     background-color: @primary-container;
-    padding-left: 0.6em;
-    padding-right: 0.6em;
+    padding: 0em 0.6em;
     margin-right: 5px;
-    margin-left: 0px;
 }
 
 /* Secondary -- for monitoring */
@@ -116,13 +106,11 @@ tooltip label {
 #disk {
     background-color: @secondary-container;
     color: @on-secondary-container;
-    padding-left: 0.6em;
-    padding-right: 0.6em;
+    padding: 0em 0.6em;
     margin-right: 5px;
-    margin-left: 0px;
 }
-
 #custom-swaync {
+    /* Last item, disable right margin */
     margin-right: 0px;
 }
 
@@ -133,13 +121,11 @@ tooltip label {
     border-radius: 50px 0px 0px 50px;
 }
 #temperature {
-    margin-left: 0;
     margin-right: 0;
     border-radius: 0px 0px 0px 0px;
 }
 #custom-mem,
 #custom-radeonmem {
-    margin-left: 0;
     border-radius: 0 50px 50px 0;
 }
 #disk {
@@ -147,7 +133,6 @@ tooltip label {
     border-radius: 50px 0px 0px 50px;
 }
 #disk.storage {
-    margin-left: 0;
     border-radius: 0px 50px 50px 0px;
 }
 
@@ -168,6 +153,7 @@ tooltip label {
 #custom-radeonmem.warning,
 #cpu.warning,
 #temperature.warning,
+#custom-gpu.warning,
 #custom-media.custom-Paused,
 #custom-updates.custom-fetch,
 #custom-lightspeed.warning,
@@ -204,17 +190,20 @@ tooltip label {
 #submap,
 #mode,
 #cpu.critical,
+#custom-gpu.critical,
 #custom-mem.critical,
 #temperature.critical,
 #custom-lightspeed.critical,
 #battery.critical.discharging {
     background-color: @tertiary-container;
     color: @on-tertiary-container;
-    padding-left: 0.6em;
-    padding-right: 0.6em;
-    margin: 0px 5px;
     animation-name: blink-critical;
     animation-duration: 1s;
+}
+#submap,
+#mode {
+    padding: 0em 6em;
+    margin-right: 5px;
 }
 
 #custom-media {
