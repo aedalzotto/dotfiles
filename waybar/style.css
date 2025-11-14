@@ -128,13 +128,6 @@ tooltip label {
 #custom-radeonmem {
     border-radius: 0 50px 50px 0;
 }
-#disk {
-    margin-right: 0;
-    border-radius: 50px 0px 0px 50px;
-}
-#disk.storage {
-    border-radius: 0px 50px 50px 0px;
-}
 
 /* Monitors that act as indicators */
 #network.wifi,
