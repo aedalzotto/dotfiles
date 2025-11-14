@@ -140,6 +140,7 @@ tooltip label {
 #network.wifi,
 #network.ethernet,
 #custom-lightspeed.normal,
+#custom-lightspeed.full,
 #bluetooth.connected,
 #custom-media.custom-Playing {
     background-color: @primary-container;
@@ -157,6 +158,7 @@ tooltip label {
 #custom-media.custom-Paused,
 #custom-updates.custom-fetch,
 #custom-lightspeed.warning,
+#custom-lightspeed.charging,
 #battery.warning {
     background-color: @tertiary-container;
     color: @on-tertiary-container;
