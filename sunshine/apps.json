@@ -1,32 +1,28 @@
 {
-    "env": {
-        "PATH": "$(PATH):$(HOME)\/.local\/bin"
-    },
     "apps": [
         {
-            "name": "Desktop FHD",
-            "image-path": "desktop.png",
-            "prep-cmd": [
-                {
-                    "do": "\/home\/angelo\/.local\/bin\/change_output_mode 1920x1080@120Hz",
-                    "undo": ""
-                }
-            ],
-            "exclude-global-prep-cmd": "false"
-        },
-        {
-            "name": "Steam Big Picture FHD",
+            "auto-detach": true,
             "detached": [
-                "setsid steam steam:\/\/open\/bigpicture"
+                "setsid steam steam://open/bigpicture"
             ],
+            "exclude-global-prep-cmd": false,
+            "exit-timeout": 15,
             "image-path": "steam.png",
-            "exclude-global-prep-cmd": "false",
+            "name": "Steam Big Picture",
             "prep-cmd": [
                 {
-                    "do": "\/home\/angelo\/.local\/bin\/change_output_mode 3840x2160@120Hz",
-                    "undo": ""
+                    "do": "hyprctl keyword monitor SUNSHINE,${SUNSHINE_CLIENT_WIDTH}x${SUNSHINE_CLIENT_HEIGHT}@${SUNSHINE_CLIENT_FPS},auto,1",
+                    "undo": "hyprctl dispatch closewindow title:Steam"
+                },
+                {
+                    "do": "",
+                    "undo": "steam steam://close/bigpicture"
                 }
-            ]
+            ],
+            "wait-all": true
         }
-    ]
+    ],
+    "env": {
+        "PATH": "$(PATH):$(HOME)/.local/bin"
+    }
 }
