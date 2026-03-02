@@ -5,6 +5,8 @@
     "margin-top": 10,
     "margin-left": 10,
     "margin-right": 10,
+    "output": "!SUNSHINE",
+    "on-sigusr2": "noop",
     "modules-left":   ["hyprland/workspaces", "hyprland/submap", "custom/media", "gamemode"],
     "modules-center": ["cpu", "temperature", "custom/mem", "custom/gpu", "temperature#gpu", "custom/radeonmem", "disk", "disk#storage"],
     "modules-right":  ["custom/updates", "custom/codec", "bluetooth", "custom/lightspeed", "pulseaudio", "network", "tray", "custom/weather", "clock", "idle_inhibitor", "custom/swaync"],
