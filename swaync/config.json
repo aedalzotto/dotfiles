@@ -22,6 +22,7 @@
   "control-center-width": 500,
   "control-center-height": 1375,
   "notification-window-width": 500,
+  "notification-window-preferred-output": "eDP-1",
   "keyboard-shortcuts": false,
   "image-visibility": "when-available",
   "transition-time": 200,
