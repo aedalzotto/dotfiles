@@ -90,6 +90,7 @@ tooltip label {
 #cpu,
 #custom-mem,
 #temperature,
+#custom-gpu-temp,
 #clock,
 #tray,
 #custom-swaync,
@@ -120,6 +121,7 @@ tooltip label {
     margin-right: 0;
     border-radius: 50px 0px 0px 50px;
 }
+#custom-gpu-temp,
 #temperature {
     margin-right: 0;
     border-radius: 0px 0px 0px 0px;
@@ -155,6 +157,7 @@ tooltip label {
 #cpu.warning,
 #temperature.warning,
 #custom-gpu.warning,
+#custom-gpu-temp.warning,
 #custom-media.custom-Paused,
 #custom-updates.custom-fetch,
 #custom-lightspeed.warning,
@@ -182,6 +185,7 @@ tooltip label {
 #custom-mem,
 #custom-radeonmem,
 #temperature,
+#custom-gpu-temp,
 #custom-lightspeed,
 #battery {
     animation-timing-function: linear;
@@ -197,6 +201,7 @@ tooltip label {
 #custom-mem.critical,
 #custom-radeonmem.critical,
 #temperature.critical,
+#custom-gpu-temp.critical,
 #custom-lightspeed.critical,
 #battery.critical.discharging {
     background-color: @tertiary-container;

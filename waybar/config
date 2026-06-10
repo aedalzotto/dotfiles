@@ -7,10 +7,9 @@
     "margin-right": 10,
     "output": "!SUNSHINE",
     "on-sigusr2": "noop",
-    "modules-left":   ["hyprland/workspaces", "hyprland/submap", "custom/media", "gamemode"],
-    "modules-center": ["cpu", "temperature", "custom/mem", "custom/gpu", "temperature#gpu", "custom/radeonmem", "disk", "disk#storage"],
-    "modules-right":  ["custom/updates", "custom/codec", "bluetooth", "custom/lightspeed", "pulseaudio", "network", "tray", "custom/weather", "clock", "idle_inhibitor", "custom/swaync"],
-    "hyprland/workspaces": {
+    "modules-left":   ["hyprland/workspaces", "hyprland/submap", "custom/media"],
+    "modules-center": ["cpu", "temperature", "custom/mem", "custom/gpu", "custom/gpu-temp", "custom/radeonmem", "disk", "disk#storage"],
+    "modules-right":  ["custom/codec", "bluetooth", "pulseaudio", "network", "tray", "custom/weather", "clock", "idle_inhibitor", "custom/swaync"],    "hyprland/workspaces": {
         "show-special": true,
         "format": "{name}: {windows}",
         "window-rewrite-default": "",
@@ -77,7 +76,7 @@
     "disk#storage": {
         "interval": 30,
         "format": "{free} ",
-        "path": "/var/local/ps2"
+        "path": "/sim"
     },
     "custom/media": {
         "format": "{icon} {0}",
@@ -114,23 +113,20 @@
         "on-click-right": "$HOME/.config/waybar/custom_modules/codecs.py -n && sleep 2 && pkill -RTMIN+10 waybar"
     },
     "custom/gpu": {
-        "exec": "cat /sys/class/drm/card0/device/gpu_busy_percent",
+        "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
         "interval": 1,
         "format": "{}% "
     },
     "custom/radeonmem": {
-        "exec": "$HOME/.config/waybar/custom_modules/radeonmem.py",
+        "exec": "nvidia-smi --query-gpu=memory.used,memory.total --format=csv,noheader,nounits | awk -F', ' '{printf \"%.1fG/%.1fG\\n\", $1/1024, $2/1024}'",
         "interval": 1,
-        "format": "{} ",
-        "return-type": "json"
+        "format": "{} "
     },
-    "temperature#gpu": {
+    "custom/gpu-temp": {
         "interval": 1,
-        "hwmon-path-abs": "/sys/class/drm/card0/device/hwmon",
-        "input-filename": "temp2_input",
-        "critical-threshold": 80,
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", "", "", ""]
+        "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits",
+        "format": "{}°C ",
+        "return-type": ""
     },
     "custom/weather": {
         "exec": "curl https://wttr.in/poa?format=1",
