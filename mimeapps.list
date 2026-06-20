@@ -30,6 +30,8 @@ application/vnd.openxmlformats-officedocument.presentationml.presentation=google
 application/json=sublime_text.desktop
 text/x-chdr=sublime_text.desktop
 image/gif=org.gnome.Shotwell-Viewer.desktop
+x-scheme-handler/tidal=sone-handler.desktop
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
 
 [Added Associations]
 application/octet-stream=sublime_text.desktop;org.gnome.GHex.desktop;
