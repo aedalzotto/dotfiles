@@ -6,7 +6,6 @@
     "margin-left": 10,
     "margin-right": 10,
     "output": "!SUNSHINE",
-    "on-sigusr2": "noop",
     "modules-left":   ["hyprland/workspaces", "hyprland/submap", "custom/media", "gamemode"],
     "modules-center": ["cpu", "temperature", "custom/mem", "custom/gpu", "temperature#gpu", "custom/radeonmem", "disk", "disk#storage"],
     "modules-right":  ["custom/updates", "custom/codec", "bluetooth", "custom/lightspeed", "pulseaudio", "network", "tray", "custom/weather", "clock", "idle_inhibitor", "custom/swaync"],
@@ -114,7 +113,7 @@
         "on-click-right": "$HOME/.config/waybar/custom_modules/codecs.py -n && sleep 2 && pkill -RTMIN+10 waybar"
     },
     "custom/gpu": {
-        "exec": "cat /sys/class/drm/card0/device/gpu_busy_percent",
+        "exec": "cat /sys/class/drm/card1/device/gpu_busy_percent",
         "interval": 1,
         "format": "{}% "
     },
@@ -126,7 +125,7 @@
     },
     "temperature#gpu": {
         "interval": 1,
-        "hwmon-path-abs": "/sys/class/drm/card0/device/hwmon",
+        "hwmon-path-abs": "/sys/class/drm/card1/device/hwmon",
         "input-filename": "temp2_input",
         "critical-threshold": 80,
         "format": "{temperatureC}°C {icon}",
@@ -176,7 +175,7 @@
         "format-connected-battery": " {icon}",
         "tooltip-format": "Bluetooth {status}",
         "tooltip-format-connected": "Connected:\n{device_alias}: {device_battery_percentage}%",
-        "on-click": "blueberry",
+        "on-click": "overskride",
         "format-icons": ["", "", "", "", ""]
     },
     "gamemode": {
