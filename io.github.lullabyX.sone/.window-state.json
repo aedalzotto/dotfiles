@@ -1,0 +1,26 @@
+{
+  "main": {
+    "width": 1710,
+    "height": 1380,
+    "x": 0,
+    "y": 0,
+    "prev_x": 0,
+    "prev_y": 0,
+    "maximized": false,
+    "visible": true,
+    "decorated": true,
+    "fullscreen": false
+  },
+  "pkce-login": {
+    "width": 1044,
+    "height": 788,
+    "x": 0,
+    "y": 0,
+    "prev_x": 0,
+    "prev_y": 0,
+    "maximized": false,
+    "visible": true,
+    "decorated": true,
+    "fullscreen": false
+  }
+}
