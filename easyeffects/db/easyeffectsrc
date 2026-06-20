@@ -1,18 +1,21 @@
+[Presets]
+lastLoadedOutputPreset=AD900X
+
 [StreamInputs]
 inputDevice=alsa_input.usb-0c76_USB_PnP_Audio_Device-00.mono-fallback
-visiblePage=pluginsPage
 
 [StreamOutputs]
-mostUsedPresets=AD900X,Standard
+mostUsedPresets=Standard,AD900X
 outputDevice=bluez_output.40_ED_98_1A_3E_E1.1
 plugins=equalizer#0
-usedPresets=AD900X:2,Standard:1
+usedPresets=AD900X:468,Standard:594
 visiblePage=pluginsPage
 visiblePlugin=equalizer#0
 
 [Window]
 height=1376
 lastLoadedOutputPreset=AD900X
-visiblePage=pwPage
+outputAutoloadingFallbackPreset=Standard
+outputAutoloadingUsesFallback=true
 visiblePresetSheetPage=autoloadingPage
 width=1701
