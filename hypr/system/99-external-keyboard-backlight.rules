@@ -1,0 +1,20 @@
+# Turn the laptop keyboard backlight off while an external USB keyboard is plugged; restore on
+# unplug. Matches ANY usb keyboard, minus a denylist of devices that merely advertise a keyboard
+# interface (gaming mice with macro keys, etc.). Add a line to the denylist for each false match.
+#
+# Internal keyboard is ID_BUS==i8042, so it's excluded automatically.
+# Installed to /etc/udev/rules.d/ by ~/.config/hypr/system/install.sh (copy, not symlink).
+
+ACTION!="add", ACTION!="remove", GOTO="ext_kbd_end"
+SUBSYSTEM!="input", GOTO="ext_kbd_end"
+ENV{ID_INPUT_KEYBOARD}!="1", GOTO="ext_kbd_end"
+ENV{ID_BUS}!="usb", GOTO="ext_kbd_end"
+
+# --- denylist: VID:PID that look like keyboards but aren't (skip them) ---
+# Logitech G403 mouse:
+ENV{ID_VENDOR_ID}=="046d", ENV{ID_MODEL_ID}=="c08f", GOTO="ext_kbd_end"
+
+ACTION=="add",    RUN+="/usr/local/bin/ext-kbd-backlight off"
+ACTION=="remove", RUN+="/usr/local/bin/ext-kbd-backlight restore"
+
+LABEL="ext_kbd_end"

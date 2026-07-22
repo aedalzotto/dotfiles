@@ -1,0 +1,13 @@
+#!/bin/sh
+# Force the laptop keyboard backlight off while an external keyboard is plugged; turn it back on
+# on unplug. Invoked by udev (as root) via 99-external-keyboard-backlight.rules.
+#
+# Coordinates with hypridle (which idle-dims the same LED) through one presence flag: while the
+# flag exists, hypridle's on-resume leaves the laptop backlight alone. No save/restore state here
+# or in hypridle for this LED — it's binary (max_brightness=1), so on/off is the whole story.
+LED=$(echo /sys/class/leds/*kbd_backlight* | cut -d' ' -f1)
+FLAG=/run/ext-kbd-present
+case "$1" in
+  off)     : > "$FLAG"; echo 0 > "$LED/brightness" ;;                      # external kb plugged
+  restore) rm -f "$FLAG"; cat "$LED/max_brightness" > "$LED/brightness" ;; # unplugged -> on
+esac
