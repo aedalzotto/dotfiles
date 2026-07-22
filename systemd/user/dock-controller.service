@@ -1,0 +1,11 @@
+[Unit]
+Description=Dock-aware laptop controller (waybar output + OLED dimming)
+PartOf=graphical-session.target
+After=graphical-session.target waybar.service
+
+[Service]
+ExecStart=%h/.config/hypr/scripts/dock-controller.py
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target
