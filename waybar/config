@@ -186,7 +186,7 @@
         "format-connected-battery": " {icon}",
         "tooltip-format": "Bluetooth {status}",
         "tooltip-format-connected": "Connected:\n{device_alias}: {device_battery_percentage}%",
-        "on-click": "blueberry",
+        "on-click": "overskride",
         "format-icons": ["", "", "", "", ""]
     },
     "custom/tablet#menu": {
