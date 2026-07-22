@@ -1,0 +1,10 @@
+[Unit]
+Description=Rotate wallpaper every 15 min
+
+[Timer]
+OnActiveSec=5s
+OnUnitActiveSec=15min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

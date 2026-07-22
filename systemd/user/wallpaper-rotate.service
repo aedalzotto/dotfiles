@@ -1,0 +1,7 @@
+[Unit]
+Description=Set a random hyprpaper wallpaper
+After=hyprpaper.service
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/hypr/scripts/wallpaper-rotate.sh
