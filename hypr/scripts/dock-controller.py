@@ -28,6 +28,10 @@ if not HIS:  # fallback: newest instance dir
     HIS = sorted(os.listdir(hypr_dir), key=lambda d: os.path.getmtime(os.path.join(hypr_dir, d)))[-1]
     os.environ["HYPRLAND_INSTANCE_SIGNATURE"] = HIS
 SOCK = os.path.join(RUNTIME, "hypr", HIS, ".socket2.sock")
+# Presence == docked; contents == laptop brightness saved before dimming. Survives a controller
+# restart (so a mid-dock restart doesn't recapture the dimmed level), and hypridle's screen
+# listener tests for this file to stay off the laptop backlight while docked.
+DOCKFILE = os.path.join(RUNTIME, "dock-saved-brightness")
 
 
 def run(*args):
@@ -76,6 +80,26 @@ def set_brightness(pct):
     run("light", "-S", str(pct))
 
 
+def read_dockfile():
+    try:
+        with open(DOCKFILE) as f:
+            return float(f.read().strip())
+    except (OSError, ValueError):
+        return None
+
+
+def write_dockfile(val):
+    with open(DOCKFILE, "w") as f:
+        f.write(str(val))
+
+
+def clear_dockfile():
+    try:
+        os.remove(DOCKFILE)
+    except OSError:
+        pass
+
+
 def set_externals_bsod():
     for m in monitors():
         if m.get("name") != EDP:
@@ -94,11 +118,16 @@ class Controller:
         self.timer = None
         # apply the current state once at startup (launcher already picked the waybar config)
         if self.docked:
-            self.saved = get_brightness()
+            # Trust a persisted value across a mid-dock restart (current brightness may already be
+            # dimmed); on a fresh boot-while-docked there's no file yet, so current is the real one.
+            existing = read_dockfile()
+            self.saved = existing if existing is not None else get_brightness()
+            write_dockfile(self.saved)
             set_externals_bsod()
             helper("stop")
             self.reevaluate_dim()
         else:
+            clear_dockfile()
             helper("start")
 
     # --- dim scheduling ---
@@ -139,12 +168,14 @@ class Controller:
             run("systemctl", "--user", "restart", "waybar")  # launcher re-picks config
             if now:
                 self.saved = get_brightness()
+                write_dockfile(self.saved)
                 set_externals_bsod()
                 helper("stop")
                 self.focused = focused_monitor()
                 self.reevaluate_dim()
             else:
                 self.undim()
+                clear_dockfile()
                 helper("start")
         elif now:               # still docked, e.g. a 2nd external added
             set_externals_bsod()
