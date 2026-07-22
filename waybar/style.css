@@ -1,16 +1,17 @@
 /* COLORS */
 @define-color primary #D0BCFF;
-@define-color primary-container #4F378B;
+@define-color primary-container rgba(79, 55, 139, 0.7);
 @define-color on-primary-container #EADDFF;
 
 
-@define-color secondary-container #4A4458;
+/* module fills use ~0.7 alpha so the always-on bar emits fewer lit pixels (OLED) */
+@define-color secondary-container rgba(74, 68, 88, 0.7);
 @define-color on-secondary-container #E8DEF8;
 
-@define-color tertiary-container #633B48;
+@define-color tertiary-container rgba(99, 59, 72, 0.7);
 @define-color on-tertiary-container #FFD8E4;
 
-@define-color error-container #8C1D18;
+@define-color error-container rgba(140, 29, 24, 0.7);
 @define-color on-error-container #F9DEDC;
 
 @define-color surface-container #211F26;
