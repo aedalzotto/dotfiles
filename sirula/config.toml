@@ -11,7 +11,7 @@ lines = 2  # maximum number of lines of app labels
 markup_default = ''
 # an extra field is appended to the app name (e.g., evince calls itself just "Document Viewer")
 markup_extra = 'font_style="italic" font_size="smaller"'
-markup_highlight = 'foreground="red" underline="double"'  # highlight matched characters
+markup_highlight = 'foreground="#D0BCFF" underline="single"'  # highlight matched characters (MD3 primary)
 
 # anchor window to screen edge
 anchor_left = true
@@ -20,13 +20,13 @@ anchor_top = true
 anchor_bottom = true
 
 # margin of window to screen edge
-margin_top = 0
-margin_bottom = 0
-margin_left = 0
+margin_top = 50  # clear the 48px waybar
+margin_bottom = 10
+margin_left = 10
 margin_right = 0
 
 # set width or height (-1 is unset)
-width = 320
+width = 380
 height = -1
 
 # specify extra field to be displayed alongside the name (may be empty)
