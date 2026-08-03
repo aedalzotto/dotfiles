@@ -1,20 +1,20 @@
 /* COLORS */
+/* MD3 baseline dark tokens — opaque, so container/on-container contrast holds */
 @define-color primary #D0BCFF;
-@define-color primary-container rgba(79, 55, 139, 0.7);
+@define-color primary-container #4F378B;
 @define-color on-primary-container #EADDFF;
 
-
-/* module fills use ~0.7 alpha so the always-on bar emits fewer lit pixels (OLED) */
-@define-color secondary-container rgba(74, 68, 88, 0.7);
+@define-color secondary-container #4A4458;
 @define-color on-secondary-container #E8DEF8;
 
-@define-color tertiary-container rgba(99, 59, 72, 0.7);
+@define-color tertiary-container #633B48;
 @define-color on-tertiary-container #FFD8E4;
 
-@define-color error-container rgba(140, 29, 24, 0.7);
+@define-color error-container #8C1D18;
 @define-color on-error-container #F9DEDC;
 
-@define-color surface-container #211F26;
+@define-color surface-container #211F26;       /* bar surface */
+@define-color surface-container-high #2B2930;  /* higher tonal elevation: tooltip */
 @define-color on-surface #E6E0E9;
 
 @keyframes blink-critical {
@@ -41,12 +41,22 @@
 }
 
 #waybar {
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 16px;    /* harmonic with a 48px bar / 36px pills (keeps the original ~0.47 ratio) */
+    font-weight: 500;   /* MD3 label weight (Medium), not Bold */
+    /* MD3 surface-container: solid bar surface (opaque, near-black -> OLED-friendly) */
+    background-color: @surface-container;
+}
+
+/* inset the outer pills so they get the same 6px gap from the bar edges as top/bottom */
+.modules-left {
+    margin-left: 6px;
+}
+.modules-right {
+    margin-right: 6px;
 }
 
 tooltip {
-    background: @surface-container;
+    background: @surface-container-high;   /* MD3: floats above the bar -> higher tone */
     border: 2px solid @primary;
     border-radius: 10px;
     font-size:  18px;
@@ -63,7 +73,7 @@ tooltip label {
     background-color: @secondary-container;
     color: @on-secondary-container;
     padding: 0em 0.6em;
-    margin-right: 5px;
+    margin: 6px 5px 6px 0;   /* 6px top/bottom -> pill = bar height - 12, centered */
 }
 #workspaces button.active {
     background-color: @primary-container;
@@ -83,7 +93,7 @@ tooltip label {
 #gamemode {
     background-color: @primary-container;
     padding: 0em 0.6em;
-    margin-right: 5px;
+    margin: 6px 5px 6px 0;
 }
 
 /* Secondary -- for monitoring */
@@ -108,7 +118,7 @@ tooltip label {
     background-color: @secondary-container;
     color: @on-secondary-container;
     padding: 0em 0.6em;
-    margin-right: 5px;
+    margin: 6px 5px 6px 0;
 }
 #custom-swaync {
     /* Last item, disable right margin */
@@ -199,11 +209,11 @@ tooltip label {
 #submap,
 #mode {
     padding: 0em 6em;
-    margin-right: 5px;
+    margin: 6px 5px 6px 0;
 }
 
 #custom-media {
-    font-size: 12px;
+    font-size: 14px;
     min-width: 100px;
 }
 
@@ -223,5 +233,32 @@ tooltip label {
 #custom-codec.custom-SBC\-XQ,
 #custom-codec.custom-SBC {
     color: #1B6AFF;
+}
+
+/* MD3 state layers: on-color overlay on hover (8%) / press (12%), only on interactive modules.
+   box-shadow inset fills the pill and follows its border-radius. */
+#workspaces button:hover,
+#pulseaudio:hover,
+#network:hover,
+#bluetooth:hover,
+#clock:hover,
+#battery:hover,
+#idle_inhibitor:hover,
+#custom-media:hover,
+#custom-updates:hover,
+#custom-codec:hover,
+#custom-swaync:hover,
+#custom-tablet:hover,
+#custom-weather:hover {
+    box-shadow: inset 0 0 0 100px alpha(@on-surface, 0.08);
+}
+#workspaces button:active,
+#pulseaudio:active,
+#network:active,
+#bluetooth:active,
+#idle_inhibitor:active,
+#custom-media:active,
+#custom-swaync:active {
+    box-shadow: inset 0 0 0 100px alpha(@on-surface, 0.12);
 }
 

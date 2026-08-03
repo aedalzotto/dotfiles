@@ -1,0 +1,11 @@
+[Unit]
+Description=Peek waybar while a Super key is physically held (mobile only)
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=%h/.config/hypr/scripts/super-peek.py
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

@@ -1,4 +1,6 @@
 {
     "include": ["~/.config/waybar/config"],
-    "output": "eDP-1"
+    "output": "eDP-1",
+    "layer": "top",
+    "exclusive": false
 }

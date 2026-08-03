@@ -1,8 +1,10 @@
 {
     "layer": "bottom",
     "position": "top",
-    "height": 30,
-    "margin-top": 10,
+    "height": 50,
+    "on-sigusr1": "hide",
+    "on-sigusr2": "show",
+    "margin-top": 0,
     "margin-left": 10,
     "margin-right": 10,
     "modules-left":   ["custom/tablet#close", "custom/tablet#menu", "hyprland/workspaces", "hyprland/submap", "custom/media", "gamemode"],

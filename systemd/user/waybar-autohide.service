@@ -1,0 +1,10 @@
+[Unit]
+Description=waybar auto-hide (reveal on top-edge hover) — laptop OLED, mobile mode only
+PartOf=graphical-session.target
+After=waybar.service
+# No [Install]/WantedBy on purpose: the dock-controller starts this in mobile mode and stops it
+# when docked, so its lifecycle is owned by the controller, not the session target.
+
+[Service]
+ExecStart=/usr/bin/waybar_auto_hide --always-hidden
+Restart=on-failure
