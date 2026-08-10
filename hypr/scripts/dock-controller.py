@@ -106,6 +106,29 @@ def set_externals_bsod():
             run("hyprctl", "hyprpaper", "wallpaper", f"{m['name']},{BSOD}")
 
 
+def align_monitors():
+    """Bottom-align the laptop to the *right* of a single external (docked).
+
+    Config's `auto-left` only top-aligns; the laptop's Y depends on the external's height (a 4K
+    external is taller, a 1080p projector is level), so it must be computed at hotplug.
+    ponytail: single-external case only — 0 or 2+ externals fall back to the config auto rules.
+    """
+    mons = monitors()
+    externals = [m for m in mons if m.get("name") != EDP]
+    lap = next((m for m in mons if m.get("name") == EDP), None)
+    if len(externals) != 1 or lap is None:
+        return
+    ext = externals[0]
+    ew = ext["width"] / ext["scale"]                       # logical size
+    eh = ext["height"] / ext["scale"]
+    lh = lap["height"] / lap["scale"]
+    tall = max(eh, lh)
+    run("hyprctl", "keyword", "monitor",
+        f'{ext["name"]},preferred,0x{round(tall - eh)},{ext["scale"]}')
+    run("hyprctl", "keyword", "monitor",
+        f'{EDP},preferred,{round(ew)}x{round(tall - lh)},{lap["scale"]}')
+
+
 def helper(action):
     run("systemctl", "--user", action, HELPER)  # no-op if the unit doesn't exist
 
@@ -123,6 +146,7 @@ class Controller:
             existing = read_dockfile()
             self.saved = existing if existing is not None else get_brightness()
             write_dockfile(self.saved)
+            align_monitors()
             set_externals_bsod()
             helper("stop")
             self.reevaluate_dim()
@@ -169,6 +193,7 @@ class Controller:
             if now:
                 self.saved = get_brightness()
                 write_dockfile(self.saved)
+                align_monitors()
                 set_externals_bsod()
                 helper("stop")
                 self.focused = focused_monitor()
@@ -177,7 +202,9 @@ class Controller:
                 self.undim()
                 clear_dockfile()
                 helper("start")
-        elif now:               # still docked, e.g. a 2nd external added
+                run("hyprctl", "keyword", "monitor", f"{EDP},preferred,auto-right,1")
+        elif now:               # still docked, e.g. a 2nd external added/removed
+            align_monitors()
             set_externals_bsod()
 
     def on_focus(self, mon):
