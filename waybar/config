@@ -167,7 +167,7 @@
             "disconnected": [""],
             "linked": [""]
         },
-        "on-click": "iwgtk",
+        "on-click": "nmrs",
         "on-click-right": "nm-connection-editor"
     },
     "bluetooth": {
