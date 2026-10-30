@@ -1,0 +1,13 @@
+[Unit]
+Description=OpenRGB lighting control
+PartOf=graphical-session.target
+After=graphical-session.target waybar.service
+
+[Service]
+# ponytail: waybar's tray has no unit to wait on, so just give it a moment to claim the StatusNotifier host
+ExecStartPre=/usr/bin/sleep 2
+ExecStart=/usr/bin/openrgb --startminimized --profile angelo
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target
