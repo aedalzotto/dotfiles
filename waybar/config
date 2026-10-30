@@ -113,7 +113,7 @@
         "on-click-right": "$HOME/.config/waybar/custom_modules/codecs.py -n && sleep 2 && pkill -RTMIN+10 waybar"
     },
     "custom/gpu": {
-        "exec": "cat /sys/class/drm/card1/device/gpu_busy_percent",
+        "exec": "cat /sys/class/drm/card0/device/gpu_busy_percent",
         "interval": 1,
         "format": "{}% "
     },
@@ -125,7 +125,7 @@
     },
     "temperature#gpu": {
         "interval": 1,
-        "hwmon-path-abs": "/sys/class/drm/card1/device/hwmon",
+        "hwmon-path-abs": "/sys/class/drm/card0/device/hwmon",
         "input-filename": "temp2_input",
         "critical-threshold": 80,
         "format": "{temperatureC}°C {icon}",
