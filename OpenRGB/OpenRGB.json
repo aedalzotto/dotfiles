@@ -12,19 +12,9 @@
         }
     },
     "AutoStart": {
-        "client": "localhost:6742",
-        "custom": "",
-        "enabled": true,
-        "host": "0.0.0.0",
-        "port": "6742",
-        "profile": "angelo",
-        "setclient": false,
-        "setcustom": false,
-        "setminimized": true,
-        "setprofile": true,
-        "setserver": false,
-        "setserverhost": false,
-        "setserverport": false
+        "custom_arguments": "",
+        "enabled": false,
+        "start_minimized": true
     },
     "Detectors": {
         "detectors": {
@@ -2147,28 +2137,42 @@
             }
         ]
     },
+    "ProfileManager": {
+        "exit_profile": {
+            "enabled": false,
+            "name": ""
+        },
+        "open_profile": {
+            "enabled": false,
+            "name": ""
+        },
+        "resume_profile": {
+            "enabled": false,
+            "name": ""
+        },
+        "service_shutdown_profile": {
+            "enabled": false,
+            "name": ""
+        },
+        "service_startup_profile": {
+            "enabled": false,
+            "name": ""
+        },
+        "suspend_profile": {
+            "enabled": false,
+            "name": ""
+        }
+    },
+    "Server": {
+        "all_controllers": false,
+        "default_host": "127.0.0.1",
+        "default_port": 6742,
+        "legacy_workaround": false
+    },
     "Theme": {
         "theme": "dark"
     },
     "UserInterface": {
-        "autoload_profiles": {
-            "exit_profile": {
-                "enabled": false,
-                "name": ""
-            },
-            "resume_profile": {
-                "enabled": false,
-                "name": ""
-            },
-            "suspend_profile": {
-                "enabled": false,
-                "name": ""
-            }
-        },
-        "exit_profile": {
-            "profile_name": "default",
-            "set_on_exit": true
-        },
         "geometry": {
             "height": 1376,
             "load_geometry": true,
@@ -2177,8 +2181,8 @@
             "x": 0,
             "y": 0
         },
-        "greyscale_tray_icon": false,
-        "language": "default",
-        "minimize_on_close": true
+        "language": "System Default",
+        "minimize_on_close": true,
+        "run_zone_checks": true
     }
 }

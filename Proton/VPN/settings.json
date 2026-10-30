@@ -1,5 +1,5 @@
 {
-    "protocol": "wireguard",
+    "protocol": "openvpn-udp",
     "killswitch": 0,
     "custom_dns": {
         "enabled": false,
