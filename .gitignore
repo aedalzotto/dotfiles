@@ -113,3 +113,11 @@ kritarc
 kritadisplayrc
 GNS3
 qt*-lockfile
+Antigravity
+*.log*
+vivaldi
+opera
+microsoft-edge
+*.bak
+OpenRGB/profiles/temp.json
+io.github.lullabyX.sone/.window-state.json
